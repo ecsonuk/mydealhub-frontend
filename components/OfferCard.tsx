@@ -1,29 +1,136 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
 type OfferCardProps = {
+  offerId: string;
   title: string;
+  merchantId: string;
   merchantName: string;
+  categoryId?: string;
+  categoryName?: string;
+  countryCode?: string;
   price: string;
   currency: string;
+  imageUrl?: string;
+  trackingUrl?: string;
 };
 
 export default function OfferCard({
+  offerId,
   title,
   merchantName,
+  merchantId,
+  categoryId,
+  categoryName,
+  countryCode,
   price,
   currency,
+  imageUrl,
+  trackingUrl,
 }: OfferCardProps) {
+
+const handleDealClick = async () => {
+  console.log("CLICKED", offerId);
+
+  try {
+    await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/click`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          offer_id: offerId,
+          merchant_id: merchantId,
+          category_id: categoryId,
+          country_code: countryCode,
+        }),
+      }
+    );
+  } catch (error) {
+    console.error("Click tracking failed", error);
+  }
+
+  if (trackingUrl) {
+    window.open(trackingUrl, "_blank");
+  }
+};
+
   return (
-    <div className="border rounded p-4 mb-4">
-      <h3 className="font-bold text-lg">
-        {title}
-      </h3>
+    <div className="bg-white border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 
-      <p>
-        Merchant: {merchantName}
-      </p>
+      <div className="relative">
 
-      <p>
-        Price: {price} {currency}
-      </p>
+	<div className="absolute top-3 left-3 z-10 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+	  🔥 Featured
+	</div>
+
+        <Link href={`/offer/${offerId}`}>
+          {imageUrl && (
+            <div className="relative w-full h-40 bg-gray-50">
+              <Image
+                src={imageUrl}
+                alt={title}
+                fill
+                className="object-contain p-4"
+              />
+            </div>
+          )}
+        </Link>
+
+      </div>
+
+      <div className="p-3">
+
+        <Link href={`/offer/${offerId}`}>
+		<h3 className="font-semibold text-sm leading-5 line-clamp-2 min-h-[40px] overflow-hidden hover:text-blue-600">
+            {title}
+          </h3>
+        </Link>
+
+        <div className="mt-2">
+
+          <Link
+            href={`/merchant/${merchantId}`}
+            className="text-sm text-blue-600 hover:underline"
+          >
+            {merchantName}
+          </Link>
+
+        </div>
+
+        {categoryId && categoryName && (
+          <Link
+            href={`/category/${categoryId}`}
+            className="inline-block mt-2 text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-600 hover:bg-gray-200"
+          >
+            {categoryName}
+          </Link>
+        )}
+
+	<div className="mt-4 bg-green-50 border border-green-100 rounded-lg p-3">
+
+	  <div className="text-xs uppercase tracking-wide text-gray-500">
+	    Deal Price
+	  </div>
+
+	  <div className="text-2xl font-bold text-green-600">
+	    {price} {currency}
+	  </div>
+
+	</div>
+	<button
+	  onClick={handleDealClick}
+	className="mt-4 block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded-xl font-semibold cursor-pointer transition-all duration-200 hover:scale-[1.02]"	
+	>
+	  View Deal →
+	</button>
+
+      </div>
+
     </div>
   );
 }

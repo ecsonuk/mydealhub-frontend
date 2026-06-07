@@ -1,13 +1,139 @@
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
-export async function getHomepageData() {
-  const response = await fetch(`${API_URL}/api/homepage`, {
+export async function getHomepageData(
+  country = ""
+) {
+  const response = await fetch(
+    `${API_URL}/api/homepage?country=${country}`,
+    {
     cache: "no-store",
   });
 
   if (!response.ok) {
     throw new Error("Failed to fetch homepage data");
+  }
+
+  return response.json();
+}
+
+export async function searchData(query: string, country = "") {
+  const response = await fetch(
+    `${API_URL}/api/search?q=${encodeURIComponent(query)}&country=${country}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch search results");
+  }
+
+  return response.json();
+}
+
+export async function getOffer(offerId: string) {
+  const response = await fetch(
+    `${API_URL}/api/offers/${offerId}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch offer");
+  }
+
+  return response.json();
+}
+
+export async function getMerchant(merchantId: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/merchants/${merchantId}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch merchant");
+  }
+
+  return res.json();
+}
+
+export async function getCategory(
+  categoryId: string,
+  page = 1,
+  limit = 20
+) {
+  const response = await fetch(
+    `${API_URL}/api/categories/${categoryId}/offers?page=${page}&limit=${limit}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch category");
+  }
+
+  return response.json();
+}
+
+export async function getCategories(
+  page = 1,
+  limit = 20,
+  q = "",
+  group = "",
+  country = ""
+) {
+  const response = await fetch(
+    `${API_URL}/api/categories?page=${page}&limit=${limit}&q=${encodeURIComponent(q)}&group=${encodeURIComponent(group)}&country=${country}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch categories");
+  }
+
+  return response.json();
+}
+
+export async function getMerchants(
+  page = 1,
+  limit = 20,
+  q = "",
+  country = ""
+) {
+  const response = await fetch(
+    `${API_URL}/api/merchants?page=${page}&limit=${limit}&q=${encodeURIComponent(q)}&country=${country}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch merchants");
+  }
+
+  return response.json();
+}
+
+export async function getCategoryGroups() {
+  const response = await fetch(
+    `${API_URL}/api/categories/groups`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      "Failed to fetch category groups"
+    );
   }
 
   return response.json();
