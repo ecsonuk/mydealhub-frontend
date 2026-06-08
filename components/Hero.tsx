@@ -4,12 +4,14 @@ import AnimatedCounter from "./AnimatedCounter";
 export default function Hero({
   stats,
 }: {
-  stats: {
-    offers: string;
-    merchants: string;
-    categories: string;
-    countries: string;
-  };
+
+stats?: {
+  offers: string;
+  merchants: string;
+  categories: string;
+  countries: string;
+};
+
 }) {
 
   return (
@@ -49,7 +51,7 @@ export default function Hero({
 
   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
     <div className="text-2xl font-bold text-white">
-	<AnimatedCounter value={Number(stats.offers)} />  
+	<AnimatedCounter value={Number(stats?.offers || 0)} />  
     </div>
     <div className="text-white/80 text-xs">
       Active Deals
@@ -58,7 +60,7 @@ export default function Hero({
 
   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
     <div className="text-2xl font-bold text-white">
-	<AnimatedCounter value={Number(stats.merchants)} />
+	<AnimatedCounter value={Number(stats?.merchants || 0)} />
     </div>
     <div className="text-white/80 text-xs">
       Merchants
@@ -67,7 +69,7 @@ export default function Hero({
 
   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
     <div className="text-2xl font-bold text-white">
-	<AnimatedCounter value={Number(stats.categories)} />
+	<AnimatedCounter value={Number(stats?.categories || 0)} />
     </div>
     <div className="text-white/80 text-xs">
       Categories
@@ -76,7 +78,7 @@ export default function Hero({
 
   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
     <div className="text-2xl font-bold text-white">
-	<AnimatedCounter value={Number(stats.countries)} />
+	<AnimatedCounter value={Number(stats?.countries || 0)} />
     </div>
     <div className="text-white/80 text-xs">
       Countries
