@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { getCategories } from "../../lib/api";
+import Image from "next/image";
 
 type PageProps = {
   searchParams: Promise<{
@@ -10,6 +11,22 @@ type PageProps = {
     group?: string;
     country?: string;
   }>;
+};
+
+const categoryIcons: Record<string, string> = {
+  Electronics: "💻",
+  Computing: "🖥️",
+  Fashion: "👕",
+  "Health & Beauty": "💄",
+  "Home Appliances": "🏠",
+  "Food & Drink": "🍔",
+  Travel: "✈️",
+  "Sport & Leisure": "⚽",
+  "Cars & Other Vehicles": "🚗",
+  "Hobby, Toys & Games": "🧸",
+  "Internet & Telecom": "📱",
+  "House & Home": "🛋️",
+  "Baby & Kids": "👶",
 };
 
 export default async function CategoriesPage({
@@ -76,8 +93,17 @@ export default async function CategoriesPage({
             <Link
               key={category.category_id}
               href={`/category/${category.category_id}`}
-              className="border rounded-lg p-4 hover:shadow-md transition bg-white"
+		className="group bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-indigo-300 transition-all duration-300"
             >
+
+	<div className="text-4xl mb-4">
+	  {
+	    categoryIcons[
+	      category.full_path.split(" > ")[0]
+	    ] || "📂"
+	  }
+	</div>
+
               <h2 className="font-semibold">
                 {category.category_name}
               </h2>

@@ -12,9 +12,9 @@ export default function WhyChooseUs() {
 
           <div className="bg-white rounded-xl p-6 text-center shadow-sm">
             <div className="text-4xl mb-3">💰</div>
-            <h3 className="font-semibold mb-2">
-              3000+ Deals
-            </h3>
+		<h3 className="font-semibold mb-2">
+		  Thousands of Deals
+		</h3>
             <p className="text-sm text-gray-600">
               Thousands of active deals updated regularly.
             </p>
@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
           <div className="bg-white rounded-xl p-6 text-center shadow-sm">
             <div className="text-4xl mb-3">🏪</div>
             <h3 className="font-semibold mb-2">
-              500+ Merchants
+              Trusted Merchants
             </h3>
             <p className="text-sm text-gray-600">
               Trusted stores from multiple countries.
@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
           <div className="bg-white rounded-xl p-6 text-center shadow-sm">
             <div className="text-4xl mb-3">📂</div>
             <h3 className="font-semibold mb-2">
-              408 Categories
+              Diverse Categories
             </h3>
             <p className="text-sm text-gray-600">
               Easily discover deals by category.
@@ -43,10 +43,10 @@ export default function WhyChooseUs() {
           <div className="bg-white rounded-xl p-6 text-center shadow-sm">
             <div className="text-4xl mb-3">🌍</div>
             <h3 className="font-semibold mb-2">
-              3 Countries
+              Global Coverage
             </h3>
             <p className="text-sm text-gray-600">
-              UK, Germany and France marketplace coverage.
+              Deals and merchants from multiple international markets.
             </p>
           </div>
 

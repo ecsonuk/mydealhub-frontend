@@ -7,6 +7,7 @@ import OfferCard from "../components/OfferCard";
 import SectionTitle from "../components/SectionTitle";
 import { getHomepageData } from "../lib/api";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 import {
   Target,
@@ -37,7 +38,7 @@ import {
 
 	<main className="max-w-screen-2xl mx-auto px-8 py-8">
 
-        <Hero />
+	<Hero stats={data.stats} />
 
         <CategoryGrid
           categories={data.popularCategories}

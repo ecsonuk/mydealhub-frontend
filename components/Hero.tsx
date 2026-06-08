@@ -1,6 +1,17 @@
 import Link from "next/link";
+import AnimatedCounter from "./AnimatedCounter";
 
-export default function Hero() {
+export default function Hero({
+  stats,
+}: {
+  stats: {
+    offers: string;
+    merchants: string;
+    categories: string;
+    countries: string;
+  };
+}) {
+
   return (
     <section className="mb-10">
 
@@ -15,23 +26,64 @@ export default function Hero() {
 
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm mb-3">
-            🔥 HOT DEALS UPDATED DAILY
+            🌎 GLOBAL DEALS MARKETPLACE
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-3">
-		Save Money on
-		<span className="text-yellow-200">
-		  {" "}3000+ Verified Deals
-		</span>
-          </h1>
+	<h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-3">
+	  Save Money with
+	  <span className="text-yellow-200">
+	    {" "}Verified Deals Worldwide
+	  </span>
+	</h1>
 
           {/* Description */}
-          <p className="text-base text-white/90 mb-5 max-w-3xl">
-            Discover exclusive discounts, coupon codes and special
-            offers from 500+ trusted merchants across the United
-            Kingdom, Germany and France.
-          </p>
+	<p className="text-base text-white/90 mb-5 max-w-3xl">
+	  Discover exclusive discounts, coupon codes and special
+	  offers from trusted merchants across multiple countries,
+	  categories and leading brands worldwide.
+	</p>
+
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 max-w-3xl">
+
+  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
+    <div className="text-2xl font-bold text-white">
+	<AnimatedCounter value={Number(stats.offers)} />  
+    </div>
+    <div className="text-white/80 text-xs">
+      Active Deals
+    </div>
+  </div>
+
+  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
+    <div className="text-2xl font-bold text-white">
+	<AnimatedCounter value={Number(stats.merchants)} />
+    </div>
+    <div className="text-white/80 text-xs">
+      Merchants
+    </div>
+  </div>
+
+  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
+    <div className="text-2xl font-bold text-white">
+	<AnimatedCounter value={Number(stats.categories)} />
+    </div>
+    <div className="text-white/80 text-xs">
+      Categories
+    </div>
+  </div>
+
+  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
+    <div className="text-2xl font-bold text-white">
+	<AnimatedCounter value={Number(stats.countries)} />
+    </div>
+    <div className="text-white/80 text-xs">
+      Countries
+    </div>
+  </div>
+
+</div>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">

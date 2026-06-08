@@ -29,9 +29,17 @@ export default function Header() {
     useState("ALL");
 
   const countryFlags: Record<string, string> = {
-   UK: "🇬🇧",
-   DE: "🇩🇪",
-   FR: "🇫🇷",
+  US: "🇺🇸",
+  UK: "🇬🇧",
+  FR: "🇫🇷",
+  ES: "🇪🇸",
+  DE: "🇩🇪",
+  NL: "🇳🇱",
+  AU: "🇦🇺",
+  IT: "🇮🇹",
+  CA: "🇨🇦",
+  DK: "🇩🇰",
+  FI: "🇫🇮",
   };
 
   const handleSearch = (
@@ -43,6 +51,19 @@ export default function Header() {
       );
     }
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (search.trim().length >= 3) {
+        router.push(
+          `/search?q=${encodeURIComponent(search)}`
+        );
+      }
+    }, 700);
+
+  return () => clearTimeout(timer);
+}, [search]);
+
 
   useEffect(() => {
     fetch(
@@ -331,7 +352,7 @@ export default function Header() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 ml-8">
 
           <input
             type="text"
@@ -369,6 +390,7 @@ export default function Header() {
 	    font-semibold
 	    hover:bg-indigo-700
 	    transition
+	    mr-30
 	  "
 	>
 	  Browse Deals
@@ -412,9 +434,9 @@ export default function Header() {
             <div
               className="
                 absolute
-                right-0
+                right-[10px]
                 mt-2
-                w-[280px]
+                w-[220px]
                 bg-white
                 border
                 border-slate-200
@@ -538,7 +560,7 @@ export default function Header() {
 		
 		      <div className="text-left">
 		
-		        <div className="font-medium text-slate-700">
+		        <div className="text-sm font-medium text-slate-700">
 		          {country.name}
 		        </div>
 		

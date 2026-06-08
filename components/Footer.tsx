@@ -14,8 +14,8 @@ export default function Footer() {
             </h2>
 
             <p className="text-sm text-gray-400">
-              Discover thousands of deals from trusted merchants across
-              the United Kingdom, Germany and France.
+		  Discover thousands of verified deals from trusted merchants
+		  across multiple countries and categories worldwide.
             </p>
           </div>
 
@@ -95,12 +95,12 @@ export default function Footer() {
               Marketplace
             </h3>
 
-            <ul className="space-y-2 text-sm">
-              <li>Thousands of Active Deals</li>
-              <li>Trusted Merchants</li>
-              <li>Multiple Categories</li>
-              <li>UK • Germany • France</li>
-            </ul>
+		<ul className="space-y-2 text-sm">
+		  <li>Verified Deals</li>
+		  <li>Trusted Merchants</li>
+		  <li>Global Categories</li>
+		  <li>Worldwide Coverage</li>
+		</ul>
           </div>
 
         </div>
