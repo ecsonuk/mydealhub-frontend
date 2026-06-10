@@ -23,3 +23,107 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 120s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee:active {
+  animation-play-state: paused !important;
+}
+
+body {
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(249, 115, 22, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(236, 72, 153, 0.15),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      #fff7ed 0%,
+      #faf5ff 35%,
+      #f8fafc 100%
+    );
+
+  min-height: 100vh;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -100px;
+  top: -100px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.08);
+  filter: blur(80px);
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  left: -50px;
+  bottom: -100px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.08);
+  filter: blur(60px);
+}
+
+@keyframes pillTicker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-pill-ticker {
+  animation: pillTicker 20s linear infinite;
+}
+
+.animate-pill-ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes trendingVertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-trending-vertical {
+  animation: trendingVertical 30s linear infinite;
+}
+
+.animate-trending-vertical:hover {
+  animation-play-state: paused;
+}

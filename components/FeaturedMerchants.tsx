@@ -17,21 +17,21 @@ export default function FeaturedMerchants({
   return (
     <section className="mb-12 rounded-3xl p-8">
 
-      <div className="flex items-center justify-between mb-8">
+	<div className="flex items-center justify-between mb-8 bg-gradient-to-r from-orange-500 via-orange-600 to-pink-600 rounded-3xl p-6 shadow-lg">
 
         <div>
-          <h2 className="text-3xl font-bold text-slate-900">
-            Featured Merchants
+          <h2 className="text-3xl font-bold text-white">
+            Top Brands & Retailers
           </h2>
 
-          <p className="text-slate-500 mt-1">
-            Shop from trusted brands and retailers
+          <p className="text-orange-50 mt-1">
+            Discover trusted brands with the best offers available today
           </p>
         </div>
 
         <Link
           href="/merchants"
-          className="text-blue-600 font-medium hover:text-blue-700 transition"
+          className="text-white font-medium hover:text-orange-100 transition"
         >
           View All →
         </Link>
@@ -44,15 +44,15 @@ export default function FeaturedMerchants({
           <Link
             key={merchant.merchant_id}
             href={`/merchant/${merchant.merchant_id}`}
-            className="bg-white rounded-2xl p-5 text-center shadow-md border border-slate-100 hover:shadow-2xl hover:border-blue-200 hover:-translate-y-2 transition-all duration-300"
+	    className="group bg-white rounded-2xl p-5 text-center shadow-md border border-slate-100 hover:shadow-2xl hover:border-blue-300 hover:-translate-y-2 hover:scale-105 transition-all duration-300"
           >
-            <div className="relative h-14 mb-4">
+            <div className="relative h-16 mb-4">
               {merchant.logo_url ? (
                 <Image
                   src={merchant.logo_url}
                   alt={merchant.merchant_name}
                   fill
-                  className="object-contain"
+		  className="object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               ) : (
                 <div className="flex items-center justify-center h-full text-sm text-slate-400">

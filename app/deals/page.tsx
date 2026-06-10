@@ -40,6 +40,7 @@ const data = await getHomepageData(
 	    {dealType === "discount" && "💰 Best Discounts"}
 	    {dealType === "savings" && "🏆 Top Savings"}
 	    {dealType === "latest" && "🆕 Latest Deals"}
+	    {dealType === "exclusive" && "💎 Exclusive Offers"}
 	    {dealType === "all" && "🔥 Deals Hub"}
 	  </h1>
 	
@@ -60,6 +61,12 @@ const data = await getHomepageData(
 	      Explore the newest deals recently added to MyDealHub.
 	    </p>
 	  )}
+
+	{dealType === "exclusive" && (
+	  <p className="mt-3 text-slate-600 text-lg">
+	    Premium and featured offers from our highest value merchants.
+	  </p>
+	)}
 	
 	  {dealType === "all" && (
 	    <p className="mt-3 text-slate-600 text-lg">
@@ -151,6 +158,36 @@ const data = await getHomepageData(
 	      ))}
 	    </div>
 	  </>
+	)}
+
+	{/* Exclusive Offers */}
+	{dealType === "exclusive" && (
+
+	  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+	    {data.exclusiveOffers
+	      .slice(0, 12)
+	      .map((offer: any) => (
+
+	      <OfferCard
+	        key={offer.offer_id}
+	        offerId={offer.offer_id}
+	        merchantId={offer.merchant_id}
+	        categoryId={offer.category_id}
+	        categoryName={offer.category_name}
+	        countryCode={offer.country_code}
+	        title={offer.title}
+	        merchantName={offer.merchant_name}
+	        imageUrl={offer.image_url}
+	        price={offer.price}
+	        currency={offer.currency}
+	        trackingUrl={offer.tracking_url}
+	      />
+
+	    ))}
+
+	  </div>
+
 	)}
 
 	{/* Top Savings */}

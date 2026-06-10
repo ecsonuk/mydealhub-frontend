@@ -88,9 +88,10 @@ export default function Header() {
   }, [searchParams]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+	
+<header className="sticky top-0 z-50 bg-gradient-to-r from-orange-200 via-pink-200 to-purple-200 backdrop-blur-md border-b border-pink-300 shadow-sm">
 
-	<div className="max-w-screen-2xl mx-auto px-8 py-4 flex items-center justify-between">
+	<div className="w-full px-12 xl:px-16 py-4 flex items-center justify-between">
 
         {/* LEFT SIDE */}
         <div className="flex items-center gap-10">
