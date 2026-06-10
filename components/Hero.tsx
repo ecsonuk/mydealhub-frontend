@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import AnimatedCounter from "./AnimatedCounter";
+import { useEffect, useRef, useState } from "react";
 
 export default function Hero({
   stats,
@@ -16,11 +19,35 @@ export default function Hero({
 }) {
 
 const deals = heroDeals || [];
+const scrollRef = useRef<HTMLDivElement>(null);
+const [isHovered, setIsHovered] = useState(false);
+
+useEffect(() => {
+  if (isHovered) return;
+
+  const container = scrollRef.current;
+
+  if (!container) return;
+
+  const interval = setInterval(() => {
+    container.scrollTop += 1;
+
+    if (
+      container.scrollTop + container.clientHeight >=
+      container.scrollHeight
+    ) {
+      container.scrollTop = 0;
+    }
+  }, 40);
+
+  return () => clearInterval(interval);
+}, [isHovered]);
+
 
   return (
     <section className="mb-14">
 
-	<div className="hero-bg relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-500 via-pink-500 to-purple-700 px-10 py-7 shadow-xl">
+	<div className="hero-bg relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-500 via-pink-500 to-purple-700 px-10 py-7 shadow-2xl border border-white/20">
 	
         {/* Decorative Effects */}
         <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/10 rounded-full blur-3xl" />
@@ -204,17 +231,33 @@ const deals = heroDeals || [];
 
 </div>
 
-<div className="hidden lg:flex flex-col">
+<div className="hidden lg:flex flex-col group">
 
   <div className="text-white font-bold text-lg mb-3">
     🔥 Trending Right Now
   </div>
 
-  <div className="overflow-hidden h-[340px] rounded-2xl">
+	<div
+	  ref={scrollRef}
+	  onMouseEnter={() => setIsHovered(true)}
+	  onMouseLeave={() => setIsHovered(false)}
+	  className="
+	    h-[340px]
+	    overflow-y-auto
+	    rounded-2xl
+	    scrollbar-auto-hide
+	  "
+	>
 
-    <div className="animate-trending-vertical flex flex-col gap-3">
+	<div
+	  className="
+	    flex
+	    flex-col
+	    gap-3
+	  "
+	>
 
-	{[...deals, ...deals].map((deal, idx) => (
+	{deals.map((deal: any, idx) => (
 
         <div
           key={`${deal.offer_id}-${idx}`}

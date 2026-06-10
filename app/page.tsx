@@ -34,24 +34,15 @@ import {
 	  const data =
 	    await getHomepageData(country);
 
-	const uniqueHeroDeals = [];
-	const merchantSet = new Set();
-
-	for (const offer of data.topDiscounts) {
-	  if (!merchantSet.has(offer.merchant_name)) {
-	    merchantSet.add(offer.merchant_name);
-	    uniqueHeroDeals.push(offer);
-	  }
-	
-	  if (uniqueHeroDeals.length === 10) break;
-	}
+	const uniqueHeroDeals = data.topDiscounts.slice(0, 20);
 
   return (
     <>
-      <AnnouncementBar />
+	<AnnouncementBar />
+
       <Header />
 
-	<main className="w-full px-6 xl:px-10 py-8">
+	<main className="max-w-[1750px] mx-auto px-4 md:px-6 xl:px-8 py-8">
 
 	<Hero
 	  stats={data.stats}
@@ -60,15 +51,89 @@ import {
 
 	<TrendingTicker brands={data.topBrands} />
 
-        {/* Trending Deals */}
-	<section className="bg-gradient-to-b from-white to-slate-50 rounded-3xl shadow-lg p-6 mb-10 border border-slate-100">
+	{/* Trending Deals */}
+	<section
+	  className="
+	    rounded-3xl
+	    bg-gradient-to-r
+	    from-orange-600
+	    via-pink-600
+	    to-purple-700
+	    shadow-2xl
+	    px-6
+	    py-4
+	    mb-10
+	  "
+	>
+
+	<div className="mb-3">
 	  <SectionTitle title="🔥 Trending Deals" />
+	
+	  <p className="text-white/80 text-sm mt-1">
+	    Hand-picked trending deals from top merchants worldwide
+	  </p>
+	</div>
 	
 	<HeroDeals
 	  offers={data.featuredOffers}
 	/>
 
 	</section>
+
+        {/* Biggest Discounts */}
+        <section
+          className="
+            rounded-3xl
+            bg-gradient-to-r
+            from-emerald-600
+            via-cyan-600
+            to-blue-700
+            shadow-2xl
+            px-6
+            py-4
+            mb-10
+          "
+>
+
+          <SectionTitle title="💸 Biggest Discounts" />
+
+           <p className="text-white/80 text-sm mb-4">
+             Highest savings and best value deals available today
+           </p>
+
+          <HeroDeals
+            offers={data.topDiscounts}
+          />
+
+        </section>
+
+        {/* New Today */}
+        <section
+          className="
+            rounded-3xl
+            bg-gradient-to-r
+            from-slate-600
+            via-blue-950
+            to-sky-800
+            shadow-2xl
+            px-6
+            py-4
+            mb-10
+          "
+        >
+
+          <SectionTitle title="🆕 New Today" />
+
+          <p className="text-white/80 text-sm mb-4">
+            Fresh offers recently added to MyDealHub
+          </p>
+
+          <HeroDeals
+            offers={data.latestOffers}
+          />
+
+        </section>
+
 
         <CategoryGrid
           categories={data.popularCategories}
@@ -77,43 +142,6 @@ import {
         <FeaturedMerchants
           merchants={data.featuredMerchants}
         />
-
-	{/* Biggest Discounts */}
-	<section className="bg-gradient-to-b from-white to-slate-50 rounded-3xl shadow-lg p-6 mb-10 border border-slate-100">
-	  <SectionTitle title="💸 Biggest Discounts" />
-	
-	  <HeroDeals
-	    offers={data.topDiscounts}
-	  />
-
-	</section>
-
-        {/* Latest Offers */}
-	<section className="bg-gradient-to-b from-white to-slate-50 rounded-3xl shadow-lg p-6 mb-10 border border-slate-100">
-	  <SectionTitle title="🆕 Newly Added Deals" />
-
-	  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-
-	    {data.latestOffers.slice(0, 8).map((offer: any) => (
-	      <OfferCard
-	        offerId={offer.offer_id}
-	        merchantId={offer.merchant_id}
-	        categoryId={offer.category_id}
-	        categoryName={offer.category_name}
-	        countryCode={offer.country_code}
-	        key={offer.offer_id}
-	        title={offer.title}
-	        merchantName={offer.merchant_name}
-	        price={offer.price}
-        	currency={offer.currency}
-	        imageUrl={offer.image_url}
-	        trackingUrl={offer.tracking_url}
-	      />
-	    ))}
-	
-	  </div>
-	
-	</section>
 
 	<WhyChooseUs stats={data.stats} />
 

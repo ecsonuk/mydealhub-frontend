@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 type Brand = {
   merchant_id: string;
@@ -17,79 +18,160 @@ type Props = {
 export default function TrendingTicker({
   brands,
 }: Props) {
+
+const scrollRef = useRef<HTMLDivElement>(null);
+const [isHovered, setIsHovered] = useState(false);
+
+useEffect(() => {
+  if (isHovered) return;
+
+  const container = scrollRef.current;
+
+  if (!container) return;
+
+  const interval = setInterval(() => {
+    container.scrollLeft += 1;
+
+    if (
+      container.scrollLeft + container.clientWidth >=
+      container.scrollWidth
+    ) {
+      container.scrollLeft = 0;
+    }
+  }, 30);
+
+  return () => clearInterval(interval);
+}, [isHovered]);
+
+
   return (
-    <div className="bg-white rounded-2xl shadow-sm mb-8 border overflow-hidden">
+    <section className="mb-10">
 
-      <div className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 font-semibold">
-        🏆 Top Brands By Active Offers
-      </div>
+      <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-white overflow-hidden">
 
-      <div className="overflow-hidden">
+        {/* Header */}
 
-        <div
-          className="
-            flex
-            gap-6
-            px-4
-            py-4
-            w-max
-            animate-marquee
-          "
-        >
+        <div className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 px-6 py-4">
 
-          {[...brands, ...brands].map(
-            (brand, index) => (
-              <Link
-                key={`${brand.merchant_id}-${index}`}
-                href={`/merchant/${brand.merchant_id}`}
-                className="
-                  flex
-                  items-center
-                  gap-3
-                  bg-slate-50
-                  rounded-xl
-                  px-4
-                  py-3
-                  min-w-[260px]
-                  hover:bg-slate-100
-                  transition
-                  flex-shrink-0
-                "
-              >
+          <div className="flex items-center justify-between">
 
-                <div className="relative w-14 h-14 flex-shrink-0">
+            <div>
 
-                  {brand.logo_url && (
-                    <Image
-                      src={brand.logo_url}
-                      alt={brand.merchant_name}
-                      fill
-                      className="object-contain"
-                    />
-                  )}
+              <h2 className="text-white font-bold text-xl">
+                🏆 Top Brands
+              </h2>
 
-                </div>
+              <p className="text-white/80 text-sm">
+                Most popular merchants ranked by active offers
+              </p>
 
-                <div>
+            </div>
 
-                  <div className="font-semibold">
-                    {brand.merchant_name}
+            <Link
+              href="/merchants"
+              className="
+                hidden
+                md:inline-flex
+                bg-white/20
+                text-white
+                px-4
+                py-2
+                rounded-xl
+                text-sm
+                font-medium
+                hover:bg-white/30
+                transition
+              "
+            >
+              View All →
+            </Link>
+
+          </div>
+
+        </div>
+
+        {/* Marquee */}
+
+	<div
+	  ref={scrollRef}
+	  onMouseEnter={() => setIsHovered(true)}
+	  onMouseLeave={() => setIsHovered(false)}
+	  className="overflow-x-auto scrollbar-auto-hide py-5"
+	>
+
+	<div
+	  className="
+	    flex
+	    gap-5
+	    w-max
+	    px-5
+	  "
+	>
+
+            {[...brands, ...brands].map(
+              (brand, index) => (
+                <Link
+                  key={`${brand.merchant_id}-${index}`}
+                  href={`/merchant/${brand.merchant_id}`}
+                  className="
+                    bg-white
+                    rounded-2xl
+                    border
+                    border-slate-200
+                    shadow-sm
+                    hover:shadow-lg
+                    hover:-translate-y-1
+                    transition-all
+                    duration-300
+                    min-w-[240px]
+                    px-4
+                    py-4
+                    flex
+		    flex-col
+		    items-center
+		    justify-center
+                    gap-4
+                    flex-shrink-0
+                  "
+                >
+
+                  {/* Logo */}
+
+                  <div
+                    className="
+                      relative
+                      w-55
+                      h-25
+                      rounded-2xl
+                      bg-slate-50
+                      border
+                      border-slate-100
+                      flex-shrink-0
+		      mx-auto
+                    "
+                  >
+
+                    {brand.logo_url && (
+                      <Image
+                        src={brand.logo_url}
+                        alt={brand.merchant_name}
+                        fill
+                        className="object-contain p-0"
+                      />
+                    )}
+
                   </div>
 
-                  <div className="text-green-600 text-sm font-medium">
-                    {brand.offer_count} Active Deals
-                  </div>
+                </Link>
+              )
+            )}
 
-                </div>
-
-              </Link>
-            )
-          )}
+          </div>
 
         </div>
 
       </div>
 
-    </div>
+    </section>
   );
 }
