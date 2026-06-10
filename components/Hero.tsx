@@ -15,6 +15,8 @@ export default function Hero({
   heroDeals?: any[];
 }) {
 
+const deals = heroDeals || [];
+
   return (
     <section className="mb-14">
 
@@ -212,7 +214,7 @@ export default function Hero({
 
     <div className="animate-trending-vertical flex flex-col gap-3">
 
-      {[...heroDeals, ...heroDeals].map((deal, idx) => (
+	{[...deals, ...deals].map((deal, idx) => (
 
         <div
           key={`${deal.offer_id}-${idx}`}
