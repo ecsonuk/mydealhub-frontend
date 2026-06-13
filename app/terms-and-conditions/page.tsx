@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Terms & Conditions | MyDealHub",
+  title: "Terms & Conditions | Hub4Deals",
   description:
-    "Terms and Conditions for using MyDealHub.com",
+    "Terms and Conditions for using Hub4Deals.com",
 };
 
 export default function TermsPage() {
@@ -15,7 +15,7 @@ export default function TermsPage() {
       <div className="space-y-6 text-gray-700 leading-8">
 
         <p>
-          Welcome to MyDealHub. By accessing and using this website,
+          Welcome to Hub4Deals. By accessing and using this website,
           you agree to comply with these Terms & Conditions.
         </p>
 
@@ -24,7 +24,7 @@ export default function TermsPage() {
         </h2>
 
         <p>
-          You may use MyDealHub for personal and lawful purposes only.
+          You may use Hub4Deals for personal and lawful purposes only.
           You agree not to misuse, disrupt or interfere with the
           operation of the website.
         </p>
@@ -44,7 +44,7 @@ export default function TermsPage() {
         </h2>
 
         <p>
-          MyDealHub participates in affiliate marketing programs.
+          Hub4Deals participates in affiliate marketing programs.
           We may earn commissions when users click affiliate links
           and complete purchases through merchant websites.
         </p>
@@ -54,7 +54,7 @@ export default function TermsPage() {
         </h2>
 
         <p>
-          Links on MyDealHub may redirect users to third-party websites.
+          Links on Hub4Deals may redirect users to third-party websites.
           We are not responsible for the content, products, services or
           privacy practices of those external websites.
         </p>
@@ -64,7 +64,7 @@ export default function TermsPage() {
         </h2>
 
         <p>
-          All content, branding and website design elements on MyDealHub
+          All content, branding and website design elements on Hub4Deals
           are protected by applicable intellectual property laws unless
           otherwise stated.
         </p>
@@ -74,7 +74,7 @@ export default function TermsPage() {
         </h2>
 
         <p>
-          MyDealHub shall not be liable for any direct, indirect,
+          Hub4Deals shall not be liable for any direct, indirect,
           incidental or consequential damages arising from the use of
           this website or reliance on information provided herein.
         </p>

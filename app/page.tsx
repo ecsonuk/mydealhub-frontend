@@ -125,7 +125,7 @@ import {
           <SectionTitle title="🆕 New Today" />
 
           <p className="text-white/80 text-sm mb-4">
-            Fresh offers recently added to MyDealHub
+            Fresh offers recently added to Hub4Deals
           </p>
 
           <HeroDeals

@@ -58,7 +58,7 @@ const data = await getHomepageData(
 		
 	  {dealType === "latest" && (
 	    <p className="mt-3 text-slate-600 text-lg">
-	      Explore the newest deals recently added to MyDealHub.
+	      Explore the newest deals recently added to Hub4Deals.
 	    </p>
 	  )}
 

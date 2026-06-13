@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MyDealHub - Verified Deals, Coupons & Discounts Worldwide",
+  title: "Hub4Deals - Verified Deals, Coupons & Discounts Worldwide",
   description:
     "Discover verified deals, coupon codes and exclusive discounts from trusted merchants across multiple countries and categories.",
 };

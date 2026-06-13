@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "About Us | MyDealHub",
+  title: "About Us | Hub4Deals",
   description:
-    "Learn more about MyDealHub and our mission to help shoppers discover the best online deals.",
+    "Learn more about Hub4Deals and our mission to help shoppers discover the best online deals.",
 };
 
 export default function AboutPage() {
@@ -9,13 +9,13 @@ export default function AboutPage() {
     <main className="max-w-5xl mx-auto px-6 py-12">
 
       <h1 className="text-4xl font-bold mb-8">
-        About MyDealHub
+        About Hub4Deals
       </h1>
 
       <div className="space-y-6 text-gray-700 leading-8">
 
         <p>
-          MyDealHub is a deal discovery platform designed to help shoppers
+          Hub4Deals is a deal discovery platform designed to help shoppers
           find the best online offers from trusted merchants across multiple
           countries.
         </p>
@@ -34,13 +34,13 @@ export default function AboutPage() {
 
         <p>
           Through partnerships with leading affiliate networks and merchants,
-          MyDealHub continuously updates deal listings to provide visitors
+          Hub4Deals continuously updates deal listings to provide visitors
           with fresh and relevant offers.
         </p>
 
         <p>
           Whether you're searching for everyday savings or special promotions,
-          MyDealHub helps you compare opportunities and discover deals that
+          Hub4Deals helps you compare opportunities and discover deals that
           match your interests.
         </p>
 

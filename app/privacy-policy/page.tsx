@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Privacy Policy | MyDealHub",
+  title: "Privacy Policy | Hub4Deals",
   description:
-    "Privacy Policy for MyDealHub.com",
+    "Privacy Policy for Hub4Deals.com",
 };
 
 export default function PrivacyPolicyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
       <div className="space-y-6 text-gray-700 leading-8">
 
         <p>
-          At MyDealHub, we value your privacy and are committed to
+          At Hub4Deals, we value your privacy and are committed to
           protecting your personal information.
         </p>
 
@@ -34,7 +34,7 @@ export default function PrivacyPolicyPage() {
         </h2>
 
         <p>
-          MyDealHub may use cookies and similar technologies to improve
+          Hub4Deals may use cookies and similar technologies to improve
           user experience, analyze website performance and personalize
           content.
         </p>
@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
         </h2>
 
         <p>
-          Some links displayed on MyDealHub are affiliate links. If you
+          Some links displayed on Hub4Deals are affiliate links. If you
           click on these links and make a purchase, we may receive a
           commission from the merchant at no additional cost to you.
         </p>

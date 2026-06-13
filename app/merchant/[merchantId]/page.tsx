@@ -33,14 +33,14 @@ export async function generateMetadata({
 
   if (!data.success) {
     return {
-      title: "Merchant Not Found | MyDealHub",
+      title: "Merchant Not Found | Hub4Deals",
     };
   }
 
   const merchant = data.merchant;
 
   return {
-    title: `${merchant.merchant_name} Deals, Coupons & Discounts | MyDealHub`,
+    title: `${merchant.merchant_name} Deals, Coupons & Discounts | Hub4Deals`,
 
     description:
       merchant.summary?.slice(0, 155) ||

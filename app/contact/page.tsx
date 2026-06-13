@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Contact Us | MyDealHub",
+  title: "Contact Us | Hub4Deals",
   description:
-    "Get in touch with the MyDealHub team for enquiries, feedback or partnership opportunities.",
+    "Get in touch with the Hub4Deals team for enquiries, feedback or partnership opportunities.",
 };
 
 export default function ContactPage() {
@@ -17,7 +17,7 @@ export default function ContactPage() {
         <p className="text-gray-700 mb-6">
           We'd love to hear from you. Whether you have questions,
           feedback, advertising enquiries, partnership opportunities
-          or suggestions regarding deals listed on MyDealHub, please
+          or suggestions regarding deals listed on Hub4Deals, please
           feel free to contact us.
         </p>
 
@@ -65,11 +65,11 @@ export default function ContactPage() {
 
           <div>
             <h2 className="text-xl font-semibold mb-2">
-              About MyDealHub
+              About Hub4Deals
             </h2>
 
             <p className="text-gray-600">
-              MyDealHub is a deal discovery platform that helps users
+              Hub4Deals is a deal discovery platform that helps users
               find discounts, offers and promotions from trusted online
               merchants across multiple categories and countries.
             </p>
