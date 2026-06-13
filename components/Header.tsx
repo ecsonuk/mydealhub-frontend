@@ -76,16 +76,37 @@ export default function Header() {
       .catch(console.error);
   }, []);
 
-  useEffect(() => {
-    const country =
-      searchParams.get("country");
+useEffect(() => {
+  const urlCountry =
+    searchParams.get("country");
 
-    if (country) {
-      setSelectedCountry(country);
-    } else {
-      setSelectedCountry("ALL");
-    }
-  }, [searchParams]);
+  if (urlCountry) {
+    setSelectedCountry(urlCountry);
+    return;
+  }
+
+  const savedCountry =
+    localStorage.getItem("country");
+
+  if (
+    savedCountry &&
+    savedCountry !== "ALL"
+  ) {
+    const params = new URLSearchParams(
+      searchParams.toString()
+    );
+
+    params.set("country", savedCountry);
+
+    router.replace(
+      `${pathname}?${params.toString()}`
+    );
+
+    return;
+  }
+
+  setSelectedCountry("ALL");
+}, [searchParams, pathname, router]);
 
   return (
 	
@@ -486,7 +507,17 @@ export default function Header() {
 		  );
 		
 		  params.delete("country");
-		
+	
+		localStorage.setItem(
+		  "country",
+		  "ALL"
+		);
+
+		localStorage.setItem(
+		  "countryLocked",
+		  "true"
+		);
+	
 		  const query = params.toString();
 		
 		  router.push(
@@ -535,7 +566,17 @@ export default function Header() {
 		    "country",
 		    country.code
 		  );
-		
+
+		localStorage.setItem(
+		  "country",
+		  country.code
+		);
+
+		localStorage.setItem(
+		  "countryLocked",
+		  "true"
+		);	
+	
 		  router.push(
 		    `${pathname}?${params.toString()}`
 		  );

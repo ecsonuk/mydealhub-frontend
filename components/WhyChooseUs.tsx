@@ -27,7 +27,7 @@ export default function WhyChooseUs({
 	>
 
 	<h2 className="text-2xl md:text-3xl font-extrabold text-center mb-3">
-	  Why Shoppers Trust MyDealHub
+	  Why Shoppers Trust Hub4Deals
 	</h2>
 
 	<p className="text-center text-white/70 text-sm mb-5 max-w-3xl mx-auto">

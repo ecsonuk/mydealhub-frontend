@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import CountryPopup from "../components/CountryPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,10 @@ export default function RootLayout({
           text-slate-900
         "
       >
-        {children}
+	<>
+	  <CountryPopup />
+	  {children}
+	</>
       </body>
     </html>
   );
