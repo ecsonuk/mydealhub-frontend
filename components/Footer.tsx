@@ -10,7 +10,7 @@ export default function Footer() {
 
           <div>
             <h2 className="text-2xl font-bold text-white mb-3">
-              MyDealHub
+              Hub4Deals
             </h2>
 
             <p className="text-sm text-gray-400">
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-700 mt-10 pt-6 text-center text-sm text-gray-400">
-          © 2026 MyDealHub.com. All rights reserved.
+          © 2026 Hub4Deals.com. All rights reserved.
         </div>
 
       </div>
