@@ -13,53 +13,71 @@ export default function WhyChooseUs({
   return (
     <section className="mb-12">
 
-      <div className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 rounded-3xl p-8 text-white">
+	<div
+	  className="
+	    bg-gradient-to-r
+	    from-slate-900
+	    via-blue-950
+	    to-slate-900
+	    rounded-3xl
+	    p-6
+	    text-white
+	    shadow-2xl
+	  "
+	>
 
-	<h2 className="text-5xl font-extrabold text-center mb-3 drop-shadow-lg">
-          Why Millions Choose MyDealHub
-        </h2>
+	<h2 className="text-2xl md:text-3xl font-extrabold text-center mb-3">
+	  Why Shoppers Trust MyDealHub
+	</h2>
 
-        <p className="text-center text-orange-50 mb-10">
-          Discover verified deals from trusted merchants worldwide
-        </p>
+	<p className="text-center text-white/70 text-sm mb-5 max-w-3xl mx-auto">
+	  We focus on quality over quantity — verified deals, trusted merchants, and real savings.
+	</p>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+	<div className="grid md:grid-cols-3 gap-8">
 
-	<div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all duration-300">
-	<div className="text-4xl font-bold drop-shadow-lg">
-	  🔥 {stats.offers}
+	<div className="bg-white/5 backdrop-blur-xl rounded-3xl p-6 max-w-sm mx-auto w-full text-center border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-xl">
+	  <div className="text-4xl mb-3">
+	    ✅
+	  </div>
+
+	  <h3 className="text-lg font-bold mb-2">
+	    Verified Deals
+	  </h3>
+
+	  <p className="text-white/70 text-sm">
+	    Every deal is reviewed before publication to help shoppers avoid expired, misleading, or low-quality offers.
+	  </p>
 	</div>
-            <div className="text-orange-50 mt-2">
-              Active Deals
-            </div>
-          </div>
 
-	<div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all duration-300">
-	<div className="text-4xl font-bold drop-shadow-lg">
-	  🏬 {stats.merchants}
-	</div>
-            <div className="text-orange-50 mt-2">
-              Trusted Merchants
-            </div>
-          </div>
+	<div className="bg-white/5 backdrop-blur-xl rounded-3xl p-6 max-w-sm mx-auto w-full text-center border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-xl">
+	  <div className="text-4xl mb-3">
+	    🏬
+	  </div>
 
-	<div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all duration-300">
-	<div className="text-4xl font-bold drop-shadow-lg">
-	  📂 {stats.categories}
-	</div>
-            <div className="text-orange-50 mt-2">
-              Categories
-            </div>
-          </div>
+	  <h3 className="text-lg font-bold mb-2">
+	    Trusted Retailers
+	  </h3>
 
-	<div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center border border-white/20 hover:bg-white/15 transition-all duration-300">
-	<div className="text-4xl font-bold drop-shadow-lg">
-	  🌎 {stats.countries}
+	  <p className="text-white/70 text-sm">
+	    Shop with confidence from recognized brands and reputable online stores across multiple countries.
+	  </p>
 	</div>
-            <div className="text-orange-50 mt-2">
-              Countries
-            </div>
-          </div>
+
+	<div className="bg-white/5 backdrop-blur-xl rounded-3xl p-6 max-w-sm mx-auto w-full text-center border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 shadow-xl">
+	  <div className="text-4xl mb-3">
+	    ⚡
+	  </div>
+
+	  <h3 className="text-lg font-bold mb-2">
+	    Save Time & Money
+	  </h3>
+
+	  <p className="text-white/70 text-sm">
+	    No more searching dozens of websites. Discover the best discounts, coupons, and offers in one place.
+	  </p>
+	</div>
+
 
         </div>
 

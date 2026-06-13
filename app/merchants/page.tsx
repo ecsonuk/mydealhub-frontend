@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Header from "../../components/Header";
+import Pagination from "../../components/Pagination";
 import { getMerchants } from "../../lib/api";
 
 type PageProps = {
@@ -43,13 +44,13 @@ export default async function MerchantsPage({
 
 	<div className="mb-10 rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-8 text-white shadow-xl">
 
-	  <h1 className="text-5xl font-extrabold mb-3">
-	    🏪 Trusted Merchants
-	  </h1>
-	
-	  <p className="text-lg text-blue-100">
-	    Discover {data.total}+ merchants across UK, Germany and France.
-	  </p>
+	<h1 className="text-5xl font-extrabold mb-3">
+	  🏪 Trusted Brands & Retailers
+	</h1>
+
+	<p className="text-lg text-blue-100">
+	  Compare offers from {data.total}+ verified merchants and discover thousands of deals updated daily.
+	</p>
 	
 	</div>
 
@@ -81,7 +82,7 @@ export default async function MerchantsPage({
           {data.total} merchants)
         </p>
 
-	<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-5">
+	<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {data.data.map((merchant: any) => (
             <Link
               key={merchant.merchant_id}
@@ -89,7 +90,7 @@ export default async function MerchantsPage({
 		className="group bg-white rounded-2xl p-5 shadow-md border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
               {merchant.logo_url ? (
-                <div className="relative h-24 mb-4">
+                <div className="relative h-20 mb-3">
                   <Image
                     src={merchant.logo_url}
                     alt={merchant.merchant_name}
@@ -107,37 +108,61 @@ export default async function MerchantsPage({
                 {merchant.merchant_name}
               </h2>
 
-		<div className="mt-3 flex justify-center">
-		  <span className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-medium">
-		    {merchant.currency}
-		  </span>
-		</div>
+	<div className="mt-4 flex flex-col items-center gap-2">
+
+	<span
+	  className="
+	    px-4 py-1.5
+	    rounded-full
+	    bg-gradient-to-r
+	    from-orange-500
+	    to-pink-500
+	    text-white
+	    text-xs
+	    font-bold
+	    shadow-md
+	  "
+	>
+	  🔥 {merchant.offer_count} Active Deals
+	</span>
+	
+	</div>
+
+	<div className="mt-4 flex justify-center">
+
+	  <span
+	    className="
+	      px-4
+	      py-2
+	      rounded-xl
+	      bg-gradient-to-r
+	      from-indigo-600
+	      to-violet-600
+	      text-white
+	      text-sm
+	      font-semibold
+	      shadow-md
+	      group-hover:shadow-xl
+	      transition-all
+	      duration-300
+	    "
+	  >
+	    View Deals →
+	  </span>
+
+	</div>
 
             </Link>
           ))}
         </div>
 
-        <div className="flex justify-center gap-4 mt-10">
+	<Pagination
+	  page={page}
+	  totalPages={totalPages}
+	  baseUrl="/merchants"
+	  queryString={`q=${encodeURIComponent(q)}&country=${country}`}
+	/>
 
-          {page > 1 && (
-            <Link
-              href={`/merchants?page=${page - 1}&q=${encodeURIComponent(q)}&country=${country}`}
-              className="border px-4 py-2 rounded"
-            >
-              Previous
-            </Link>
-          )}
-
-          {page < totalPages && (
-            <Link
-             href={`/merchants?page=${page + 1}&q=${encodeURIComponent(q)}&country=${country}`}
-             className="border px-4 py-2 rounded"
-            >
-              Next
-            </Link>
-          )}
-
-        </div>
       </main>
     </>
   );

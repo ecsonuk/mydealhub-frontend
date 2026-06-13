@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Header from "../../components/Header";
+import Pagination from "@/components/Pagination";
 import Footer from "../../components/Footer";
 import { getCategories } from "../../lib/api";
 import Image from "next/image";
@@ -58,89 +59,118 @@ export default async function CategoriesPage({
 
       <main className="max-w-screen-2xl mx-auto p-8">
 
-	<h1 className="text-4xl font-bold mb-2">
-	  {group ? `${group} Categories` : "Categories"}
-	</h1>
+	<section className="mb-4 rounded-3xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 p-4 text-white">
 
-	<p className="text-gray-600 mb-8">
-	  {group
-	    ? `Browse categories under ${group}.`
-	    : "Browse all available deal categories."}
-	</p>
+	  <h1 className="text-3xl font-bold mb-2">
+	    📂 {group ? `${group} Categories` : "Browse Categories"}
+	  </h1>
+
+	  <p className="text-white/90">
+	    {group
+	      ? `Explore deals and offers available under ${group}.`
+	      : "Explore thousands of deals organized by category from leading brands and retailers."}
+	  </p>
+
+	<div className="mt-2 inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-medium">	
+	    {data.total} Categories Available
+
+	  </div>
+	</section>
 
         <form
           action="/categories"
           method="GET"
-          className="mb-6"
+          className="mb-6 relative"
         >
           <input
             type="text"
             name="q"
             defaultValue={q}
             placeholder="Search categories..."
-            className="w-full border rounded-lg px-4 py-3"
+    	className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
+
+	<button
+	  type="submit"
+	  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
+	>
+	  Search
+	</button>
         </form>
 
-        <p className="text-sm text-gray-500 mb-6">
-          Showing page {data.page} of {totalPages}
-          {" "}({data.total} categories)
-        </p>
+	<p className="text-sm text-slate-500 mb-6">
+	  Showing <span className="font-semibold">{data.data.length}</span> categories on page{" "}
+	  <span className="font-semibold">{data.page}</span> of{" "}
+	  <span className="font-semibold">{totalPages}</span>
+	</p>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+	{data.data.length === 0 ? (
+	  <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center shadow-sm">
+	    <div className="text-5xl mb-4">📂</div>
+	    <h2 className="text-xl font-bold mb-2">
+	      No Categories Found
+	    </h2>
+	    <p className="text-slate-500">
+	      Try adjusting your search criteria.
+	    </p>
+	  </div>
+	) : (
 
-          {data.data.map((category: any) => (
+	<div className="bg-white/40 rounded-3xl p-4">
+	<div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-4">	
+	    {data.data.map((category: any) => (
+
             <Link
               key={category.category_id}
               href={`/category/${category.category_id}`}
-		className="group bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-indigo-300 transition-all duration-300"
+		className="group bg-white border border-slate-200 rounded-2xl p-5 min-h-[190px] flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] hover:border-indigo-400 transition-all duration-300"
             >
 
-	<div className="text-4xl mb-4">
+	<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-100 to-purple-100 text-5xl transition-transform duration-300 group-hover:scale-110">
 	  {
 	    categoryIcons[
 	      category.full_path.split(" > ")[0]
 	    ] || "📂"
 	  }
+
 	</div>
 
-              <h2 className="font-semibold">
-                {category.category_name}
-              </h2>
+	<h2 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-indigo-600 transition-colors">
+	  {category.category_name}
+	</h2>
 
-		<div className="mt-3 inline-flex items-center rounded-full bg-blue-50 px-3 py-1">
-		  <span className="text-xs font-medium text-blue-600">
-		    {category.offer_count} offers
-		  </span>
-		</div>	
+	<p className="text-xs text-slate-500 line-clamp-1 mb-3">
+	  {category.full_path}
+	</p>
+
+	<div className="flex-grow"></div>
+
+	<div className="inline-flex items-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-3 py-1 shadow-sm">
+
+	  <span className="text-xs font-semibold text-white">
+	    🔥 {category.offer_count} Active Offers
+	  </span>
+	</div>
+
+	<div className="mt-5 pt-4 border-t border-slate-100">
+	  <div className="text-sm font-semibold text-indigo-600 group-hover:text-indigo-800">
+	    Browse Deals →
+	  </div>
+	</div>
 
             </Link>
           ))}
+	  </div>
+	</div>
+	)}
 
-        </div>
-
-        <div className="flex justify-center gap-4 mt-10">
-
-          {page > 1 && (
-            <Link
-		href={`/categories?page=${page - 1}&q=${encodeURIComponent(q)}&group=${encodeURIComponent(group)}&country=${country}`}
-              className="border px-4 py-2 rounded"
-            >
-              Previous
-            </Link>
-          )}
-
-          {page < totalPages && (
-            <Link
-		href={`/categories?page=${page + 1}&q=${encodeURIComponent(q)}&group=${encodeURIComponent(group)}&country=${country}`}
-              className="border px-4 py-2 rounded"
-            >
-              Next
-            </Link>
-          )}
-
-        </div>
-
+	<Pagination
+	  page={page}
+	  totalPages={totalPages}
+	  baseUrl="/categories"
+	  queryString={`q=${encodeURIComponent(q)}&group=${encodeURIComponent(group)}&country=${country}`}
+	/>	
+	
       </main>
 
       <Footer />

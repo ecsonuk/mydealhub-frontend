@@ -47,9 +47,14 @@ export async function getOffer(offerId: string) {
   return response.json();
 }
 
-export async function getMerchant(merchantId: string) {
+  export async function getMerchant(
+    merchantId: string,
+    page = 1,
+    limit = 20
+  ) {
+
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/merchants/${merchantId}`,
+	`${process.env.NEXT_PUBLIC_API_URL}/api/merchants/${merchantId}?page=${page}&limit=${limit}`,
     {
       cache: "no-store",
     }

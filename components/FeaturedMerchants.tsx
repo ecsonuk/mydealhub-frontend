@@ -15,23 +15,61 @@ export default function FeaturedMerchants({
   merchants,
 }: Props) {
   return (
-    <section className="mb-12 rounded-3xl p-8">
 
-	<div className="flex items-center justify-between mb-8 bg-gradient-to-r from-orange-500 via-orange-600 to-pink-600 rounded-3xl p-6 shadow-lg">
+	<section
+	  className="
+	    mb-12
+	    rounded-3xl
+	    p-8
+	    bg-gradient-to-r
+	    from-cyan-700
+	    via-blue-700
+	    to-indigo-800
+	    shadow-2xl
+	  "
+	>	
+
+
+	<div
+	  className="
+	    flex
+	    items-center
+	    justify-between
+	    mb-6
+	    rounded-3xl
+	    p-5
+	    bg-white/10
+	    backdrop-blur-xl
+	    border
+	    border-white/20
+	    shadow-xl
+	  "
+	>
 
         <div>
-          <h2 className="text-3xl font-bold text-white">
-            Top Brands & Retailers
-          </h2>
-
-          <p className="text-orange-50 mt-1">
-            Discover trusted brands with the best offers available today
-          </p>
+	<h2 className="text-2xl md:text-3xl font-extrabold text-white">
+	  Featured Merchants
+	</h2>
+	
+	<p className="text-white/80 mt-1">
+	  Discover trusted brands and retailers with exclusive offers
+	</p>
         </div>
 
         <Link
           href="/merchants"
-          className="text-white font-medium hover:text-orange-100 transition"
+	className="
+	  px-4
+	  py-1.5
+	  rounded-full
+	  bg-white/15
+	  border
+	  border-white/20
+	  text-white
+	  font-semibold
+	  hover:bg-white/25
+	  transition
+	"
         >
           View All →
         </Link>
@@ -44,9 +82,25 @@ export default function FeaturedMerchants({
           <Link
             key={merchant.merchant_id}
             href={`/merchant/${merchant.merchant_id}`}
-	    className="group bg-white rounded-2xl p-5 text-center shadow-md border border-slate-100 hover:shadow-2xl hover:border-blue-300 hover:-translate-y-2 hover:scale-105 transition-all duration-300"
+		className="
+		  group
+		  rounded-3xl
+		  p-3
+		  text-center
+		  bg-white/95
+		  backdrop-blur-xl
+		  border
+		  border-white/30
+		  shadow-xl
+		  hover:shadow-2xl
+		  hover:scale-105
+		  hover:-translate-y-2
+		  transition-all
+		  duration-300
+		"
+
           >
-            <div className="relative h-16 mb-4">
+            <div className="relative h-20 mb-2">
               {merchant.logo_url ? (
                 <Image
                   src={merchant.logo_url}
@@ -61,7 +115,16 @@ export default function FeaturedMerchants({
               )}
             </div>
 
-            <div className="text-sm text-slate-800 font-semibold line-clamp-2">
+		<div
+		  className="
+		    text-[11px]
+		    text-slate-600
+		    font-medium
+		    truncate
+		    mt-1
+		  "
+		>
+
               {merchant.merchant_name}
             </div>
 
