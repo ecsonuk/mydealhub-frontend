@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams, usePathname,} from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
@@ -27,6 +27,9 @@ export default function Header() {
 
   const [selectedCountry, setSelectedCountry] =
     useState("ALL");
+
+  const countryDropdownRef =
+    useRef<HTMLDivElement>(null);
 
   const countryFlags: Record<string, string> = {
   US: "🇺🇸",
@@ -107,6 +110,33 @@ useEffect(() => {
 
   setSelectedCountry("ALL");
 }, [searchParams, pathname, router]);
+
+useEffect(() => {
+  function handleClickOutside(
+    event: MouseEvent
+  ) {
+    if (
+      countryDropdownRef.current &&
+      !countryDropdownRef.current.contains(
+        event.target as Node
+      )
+    ) {
+      setCountryOpen(false);
+    }
+  }
+
+  document.addEventListener(
+    "mousedown",
+    handleClickOutside
+  );
+
+  return () => {
+    document.removeEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+  };
+}, []);
 
   return (
 	
@@ -419,7 +449,10 @@ useEffect(() => {
 	</Link>
 
         {/* Country Selector */}
-        <div className="relative hidden md:block">
+	<div
+	  ref={countryDropdownRef}
+	  className="relative hidden md:block"
+	>
 
 
         <button
