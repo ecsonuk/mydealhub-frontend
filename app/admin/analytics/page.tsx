@@ -126,17 +126,15 @@ const applyPreset = (days: number) => {
     router.push("/admin/login");
   };
 
-const formatChartDate = (value: string) => {
-  const parts = value.split("-");
+const formatChartDate = (value: string | number) => {
+  const date = new Date(String(value));
 
-  return `${parts[2]} ${new Date(
-    Number(parts[0]),
-    Number(parts[1]) - 1,
-    Number(parts[2])
-  ).toLocaleString("en-GB", {
+  return date.toLocaleDateString("en-GB", {
+    day: "2-digit",
     month: "short",
-  })}`;
+  });
 };
+
 
   if (loading) {
     return (
@@ -324,7 +322,9 @@ const formatChartDate = (value: string) => {
         <YAxis />
 
 	<Tooltip
-	  labelFormatter={formatChartDate}
+	  labelFormatter={(label) =>
+	    formatChartDate(String(label))
+	  }
 	/>
 
 	<Line
