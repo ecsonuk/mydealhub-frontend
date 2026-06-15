@@ -22,6 +22,14 @@ export async function generateMetadata({
   if (!offer) {
     return {
       title: "Offer Not Found | Hub4Deals",
+  
+      description:
+        "The requested offer could not be found.",
+  
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
