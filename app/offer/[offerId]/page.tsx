@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 import Header from "../../../components/Header";
 import { getOffer } from "../../../lib/api";
 
@@ -8,6 +9,65 @@ type PageProps = {
     offerId: string;
   }>;
 };
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+
+  const { offerId } = await params;
+
+  const result = await getOffer(offerId);
+  const offer = result.data;
+
+  if (!offer) {
+    return {
+      title: "Offer Not Found | Hub4Deals",
+    };
+  }
+
+  const description =
+    `${offer.title} available from ${offer.merchant_name} at ${offer.price} ${offer.currency}. Compare prices and discover more deals on Hub4Deals.`;
+
+  const canonical =
+    `https://www.hub4deals.com/offer/${offerId}`;
+
+  return {
+    title:
+      `${offer.title} | ${offer.merchant_name} | Hub4Deals`,
+
+    description,
+
+    alternates: {
+      canonical,
+    },
+
+    openGraph: {
+      title:
+        `${offer.title} | ${offer.merchant_name}`,
+      description,
+      url: canonical,
+      siteName: "Hub4Deals",
+      images: offer.image_url
+        ? [
+            {
+              url: offer.image_url,
+            },
+          ]
+        : [],
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title:
+        `${offer.title} | ${offer.merchant_name}`,
+      description,
+      images: offer.image_url
+        ? [offer.image_url]
+        : [],
+    },
+  };
+}
 
 export default async function OfferPage({
   params,
