@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://hub4deals.com";
+const BASE_URL = "https://www.hub4deals.com";
 const API_URL = "https://mydealhub-api-production.up.railway.app";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://hub4deals.com/sitemap.xml",
+    sitemap: "https://www.hub4deals.com/sitemap.xml",
   };
 }
