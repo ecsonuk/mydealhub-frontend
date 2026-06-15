@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Header from "@/components/Header";
 import Pagination from "@/components/Pagination";
 import { getCategory } from "@/lib/api";
@@ -11,6 +12,64 @@ type PageProps = {
     page?: string;
   }>;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    categoryId: string;
+  }>;
+}): Promise<Metadata> {
+
+  const { categoryId } = await params;
+
+  const data = await getCategory(
+    categoryId,
+    1,
+    1,
+  );
+
+  if (!data.success) {
+    return {
+      title: "Category Not Found | Hub4Deals",
+    };
+  }
+
+  const category = data.category;
+
+  const description =
+    `Browse ${category.category_name} deals, discounts and offers from trusted merchants on Hub4Deals.`;
+
+  const canonical =
+    `https://www.hub4deals.com/category/${categoryId}`;
+
+  return {
+    title:
+      `${category.category_name} Deals & Discounts | Hub4Deals`,
+
+    description,
+
+    alternates: {
+      canonical,
+    },
+
+    openGraph: {
+      title:
+        `${category.category_name} Deals & Discounts`,
+      description,
+      url: canonical,
+      siteName: "Hub4Deals",
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title:
+        `${category.category_name} Deals & Discounts`,
+      description,
+    },
+  };
+}
 
 export default async function CategoryPage({
   params,

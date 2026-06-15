@@ -39,12 +39,48 @@ export async function generateMetadata({
 
   const merchant = data.merchant;
 
-  return {
-    title: `${merchant.merchant_name} Deals, Coupons & Discounts | Hub4Deals`,
+  const description =
+    merchant.summary?.slice(0, 155) ||
+    `Browse latest deals and offers from ${merchant.merchant_name}.`;
 
-    description:
-      merchant.summary?.slice(0, 155) ||
-      `Browse latest deals and offers from ${merchant.merchant_name}.`,
+  const canonical =
+    `https://www.hub4deals.com/merchant/${merchantId}`;
+
+  return {
+    title:
+      `${merchant.merchant_name} Deals, Coupons & Discounts | Hub4Deals`,
+
+    description,
+
+    alternates: {
+      canonical,
+    },
+
+    openGraph: {
+      title:
+        `${merchant.merchant_name} Deals & Coupons`,
+      description,
+      url: canonical,
+      siteName: "Hub4Deals",
+      images: merchant.logo_url
+        ? [
+            {
+              url: merchant.logo_url,
+            },
+          ]
+        : [],
+      type: "website",
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title:
+        `${merchant.merchant_name} Deals & Coupons`,
+      description,
+      images: merchant.logo_url
+        ? [merchant.logo_url]
+        : [],
+    },
   };
 }
 
