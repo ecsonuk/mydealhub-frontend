@@ -16,9 +16,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Hub4Deals - Verified Deals, Coupons & Discounts Worldwide",
+
   description:
     "Discover verified deals, coupon codes and exclusive discounts from trusted merchants across multiple countries and categories.",
+
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
+
 
 export default function RootLayout({
   children,

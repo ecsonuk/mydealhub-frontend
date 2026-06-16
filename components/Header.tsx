@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useRouter, useSearchParams, usePathname,} from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -147,18 +147,18 @@ useEffect(() => {
         {/* LEFT SIDE */}
         <div className="flex items-center gap-10">
 
-          {/* LOGO */}
+         {/* LOGO */}
           <Link href="/">
-	<h1 className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-	  Hub4Deals
-	</h1>
+        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          Hub4Deals
+        </h1>
 
-	<span className="text-[11px] font-medium mt-1">
-	  by{" "}
-	  <span className="text-slate-500">Ad</span>
-	  <span className="text-blue-500">Media</span>
-	  <span className="text-purple-500">One</span>
-	</span>
+        <span className="text-[11px] font-medium mt-1">
+          by{" "}
+          <span className="text-slate-500">Ad</span>
+          <span className="text-blue-500">Media</span>
+          <span className="text-purple-500">One</span>
+        </span>
 
           </Link>
 
