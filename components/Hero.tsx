@@ -22,6 +22,32 @@ const deals = heroDeals || [];
 const scrollRef = useRef<HTMLDivElement>(null);
 const [isHovered, setIsHovered] = useState(false);
 
+const handleDealClick = async (deal: any) => {
+  try {
+    await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/click`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          offer_id: deal.offer_id,
+          merchant_id: deal.merchant_id,
+          category_id: deal.category_id,
+          country_code: deal.country_code,
+        }),
+      }
+    );
+  } catch (error) {
+    console.error("Click tracking failed", error);
+  }
+
+  if (deal.tracking_url) {
+    window.open(deal.tracking_url, "_blank");
+  }
+};
+
 useEffect(() => {
   if (isHovered) return;
 
@@ -288,14 +314,12 @@ useEffect(() => {
 
             </div>
 
-            <a
-              href={deal.tracking_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-orange-600 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-yellow-100"
-            >
-              Grab Deal →
-            </a>
+	<button
+	  onClick={() => handleDealClick(deal)}
+	  className="bg-white text-orange-600 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-yellow-100 cursor-pointer"
+	>
+	  Grab Deal →
+	</button>
 
           </div>
 
