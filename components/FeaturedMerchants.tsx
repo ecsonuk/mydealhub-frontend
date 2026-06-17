@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 type Merchant = {
@@ -102,12 +101,12 @@ export default function FeaturedMerchants({
           >
             <div className="relative h-20 mb-2">
               {merchant.logo_url ? (
-                <Image
-                  src={merchant.logo_url}
-                  alt={merchant.merchant_name}
-                  fill
-		  className="object-contain transition-transform duration-300 group-hover:scale-110"
-                />
+		<img
+		  src={merchant.logo_url}
+		  alt={merchant.merchant_name}
+		  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+		  loading="lazy"
+		/>
               ) : (
                 <div className="flex items-center justify-center h-full text-sm text-slate-400">
                   No Logo

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 import Header from "../../../components/Header";
 import { getOffer } from "../../../lib/api";
@@ -104,12 +103,12 @@ export default async function OfferPage({
         <div className="grid md:grid-cols-2 gap-8">
 
           <div className="relative h-[500px]">
-            <Image
-              src={offer.image_url}
-              alt={offer.title}
-              fill
-              className="object-contain"
-            />
+		<img
+		  src={offer.image_url}
+		  alt={offer.title}
+		  className="w-full h-full object-contain"
+		  loading="lazy"
+		/>
           </div>
 
           <div>

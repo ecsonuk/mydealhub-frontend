@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -152,12 +151,12 @@ useEffect(() => {
                   >
 
                     {brand.logo_url && (
-                      <Image
-                        src={brand.logo_url}
-                        alt={brand.merchant_name}
-                        fill
-                        className="object-contain p-0"
-                      />
+			<img
+			  src={brand.logo_url}
+			  alt={brand.merchant_name}
+			  className="w-full h-full object-contain p-0"
+			  loading="lazy"
+			/>
                     )}
 
                   </div>

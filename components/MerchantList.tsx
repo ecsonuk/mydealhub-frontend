@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 type Merchant = {
   merchant_id: string;
@@ -47,12 +46,12 @@ export default function MerchantList({
           >
             {merchant.logo_url ? (
               <div className="relative h-16 mb-3">
-                <Image
-                  src={merchant.logo_url}
-                  alt={merchant.merchant_name}
-                  fill
-                  className="object-contain"
-                />
+		<img
+		  src={merchant.logo_url}
+		  alt={merchant.merchant_name}
+		  className="w-full h-full object-contain"
+		  loading="lazy"
+		/>
               </div>
             ) : (
               <div className="h-16 mb-3 flex items-center justify-center text-gray-400">
