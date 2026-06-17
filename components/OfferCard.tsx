@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 type OfferCardProps = {
@@ -75,12 +74,12 @@ const handleDealClick = async () => {
         <Link href={`/offer/${offerId}`}>
           {imageUrl && (
             <div className="relative w-full h-24 bg-gray-50">
-              <Image
-                src={imageUrl}
-                alt={title}
-                fill
-                className="object-contain p-4"
-              />
+		<img
+		  src={imageUrl}
+		  alt={title}
+		  className="w-full h-full object-contain p-4"
+		  loading="lazy"
+		/>
             </div>
           )}
         </Link>
