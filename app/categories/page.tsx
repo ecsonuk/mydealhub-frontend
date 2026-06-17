@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 import Pagination from "@/components/Pagination";
 import Footer from "../../components/Footer";
 import { getCategories } from "../../lib/api";
-import Image from "next/image";
 
 type PageProps = {
   searchParams: Promise<{

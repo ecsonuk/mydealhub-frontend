@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Pagination from "@/components/Pagination";
@@ -145,12 +144,12 @@ export async function generateMetadata({
 	    shadow-xl
 	  "	
 	>
-	  <Image
-	    src={merchant.logo_url}
-	    alt={merchant.merchant_name}
-	    width={160}
-	    height={160}
-	  />
+		<img
+		  src={merchant.logo_url}
+		  alt={merchant.merchant_name}
+		  className="max-w-[160px] max-h-[160px] object-contain"
+		  loading="lazy"
+		/>
 	</div>
           )}
 
