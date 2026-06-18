@@ -35,17 +35,17 @@ export default function HeroDeals({
   return (
     <div
       ref={scrollRef}
-      className="
-        overflow-x-auto
-        overflow-y-hidden
-        scrollbar-hide
-        cursor-grab
-        select-none
-      "
+	className="
+	  overflow-x-auto
+	  overflow-y-hidden
+	  scrollbar-hide
+	  cursor-grab
+	  select-none
+	"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="flex gap-4 min-w-max">
+      <div className="flex gap-4 w-max">
 
         {[...offers, ...offers].map(
           (offer, index) => (

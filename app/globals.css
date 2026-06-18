@@ -144,3 +144,8 @@ body::before {
       transparent 15%
     );
 }
+
+html,
+body {
+  overflow-x: hidden;
+}

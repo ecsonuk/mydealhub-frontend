@@ -42,7 +42,7 @@ import {
 
       <Header />
 
-	<main className="max-w-[1750px] mx-auto px-4 md:px-6 xl:px-8 py-8">
+	<main className="w-full mx-auto px-4 md:px-6 xl:px-8 py-8">
 
 	<Hero
 	  stats={data.stats}

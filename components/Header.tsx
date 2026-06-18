@@ -142,10 +142,10 @@ useEffect(() => {
 	
 <header className="sticky top-0 z-50 bg-gradient-to-r from-orange-200 via-pink-200 to-purple-200 backdrop-blur-md border-b border-pink-300 shadow-sm">
 
-	<div className="w-full px-12 xl:px-16 py-4 flex items-center justify-between">
+	<div className="w-full px-4 md:px-6 xl:px-10 py-4 flex items-center justify-between">
 
         {/* LEFT SIDE */}
-        <div className="flex items-center gap-10">
+	<div className="flex items-center gap-4 xl:gap-8">
 
          {/* LOGO */}
           <Link href="/">
@@ -184,7 +184,7 @@ useEffect(() => {
 		  className="
 		    absolute top-full left-0 mt-3
 		    max-h-[500px]
-		    w-[800px]
+		    w-[700px] xl:w-[800px] max-w-[90vw]
 		    overflow-y-auto
 		    bg-gradient-to-br
 		    from-white
@@ -413,8 +413,8 @@ useEffect(() => {
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={handleSearch}
             className="
-              hidden md:block
-              w-80
+		hidden lg:block
+		w-64 xl:w-80
               rounded-2xl
               border border-slate-300
               bg-slate-50
@@ -432,7 +432,7 @@ useEffect(() => {
 	<Link
 	  href="/deals"
 	  className="
-	    hidden lg:flex
+	    hidden xl:flex
 	    items-center
 	    bg-indigo-600
 	    text-white
@@ -442,7 +442,6 @@ useEffect(() => {
 	    font-semibold
 	    hover:bg-indigo-700
 	    transition
-	    mr-30
 	  "
 	>
 	  Browse Deals

@@ -122,7 +122,7 @@ useEffect(() => {
                     hover:-translate-y-1
                     transition-all
                     duration-300
-                    min-w-[240px]
+		    flex-shrink-0 w-[240px]
                     px-4
                     py-4
                     flex

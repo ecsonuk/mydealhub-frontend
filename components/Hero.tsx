@@ -73,14 +73,14 @@ useEffect(() => {
   return (
     <section className="mb-14">
 
-	<div className="hero-bg relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-500 via-pink-500 to-purple-700 px-10 py-7 shadow-2xl border border-white/20">
+	<div className="hero-bg relative overflow-hidden rounded-3xl bg-gradient-to-r from-orange-500 via-pink-500 to-purple-700 px-5 md:px-8 xl:px-10 py-7 shadow-2xl border border-white/20">
 	
         {/* Decorative Effects */}
         <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/10 rounded-full blur-3xl" />
 
         <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-yellow-300/20 rounded-full blur-3xl" />
 
-        <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+        <div className="relative z-10 grid xl:grid-cols-2 gap-8 items-center">
 
 	<div>
 

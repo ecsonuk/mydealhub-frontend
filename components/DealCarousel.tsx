@@ -8,9 +8,9 @@ export default function DealCarousel({
   offers: any[];
 }) {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-x-hidden w-full">
 
-      <div className="flex gap-4 animate-marquee w-max">
+      <div className="flex gap-4 animate-marquee">
 
         {[...offers, ...offers].map(
           (offer, index) => (
