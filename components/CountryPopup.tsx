@@ -22,7 +22,7 @@ export default function CountryPopup() {
           setCountry("ALL");
           setShow(true);
         });
-    }, 30000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
