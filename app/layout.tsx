@@ -37,11 +37,6 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
 
-  other: {
-    "impact-site-verification":
-      "1d2583ee-db97-4f72-a624-6e251f4e4846",
-  },
-
 };
 
 
@@ -51,10 +46,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+      <html
+        lang="en"
+        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      >
+        <head>
+          <meta
+            name="impact-site-verification"
+            value="1d2583ee-db97-4f72-a624-6e251f4e4846"
+          />
+        </head>
+
       <body
         className="
           min-h-full
