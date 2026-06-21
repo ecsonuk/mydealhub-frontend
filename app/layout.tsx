@@ -15,10 +15,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hub4deals.com"),
+
   title: "Hub4Deals - Verified Deals, Coupons & Discounts Worldwide",
 
   description:
     "Discover verified deals, coupon codes and exclusive discounts from trusted merchants across multiple countries and categories.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 
   icons: {
     icon: "/icon.png",
