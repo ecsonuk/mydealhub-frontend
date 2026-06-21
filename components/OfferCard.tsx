@@ -63,24 +63,24 @@ const handleDealClick = async () => {
 
       <div className="relative">
 
-	<div className="absolute top-3 left-3 z-10 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+	<div className="absolute top-3 left-3 z-10 bg-gradient-to-r from-orange-500 to-red-500 text-white text-[10px] font-semibold px-2 py-1 rounded-full shadow">
 	  ⚡ Hot Deal
 	</div>
 
-	<div className="absolute top-3 right-3 z-10 bg-white text-red-500 text-xs font-bold px-2 py-1 rounded-full">
+	<div className="absolute top-3 right-3 z-10 bg-white text-red-500 text-[10px] font-semibold px-2 py-1 rounded-full">
 	  Ends Soon
 	</div>
 
         <Link href={`/offer/${offerId}`}>
           {imageUrl && (
-            <div className="relative w-full h-24 bg-gray-50">
-		<img
-		  src={imageUrl}
-		  alt={title}
-		  className="w-full h-full object-contain p-4"
-		  loading="lazy"
-		/>
-            </div>
+		<div className="relative w-full h-64 bg-white flex items-center justify-center">
+		  <img
+		    src={imageUrl}
+		    alt={title}
+		    className="w-full h-full object-contain p-2 transition-transform duration-300 hover:scale-105"
+		    loading="lazy"
+		  />
+		</div>
           )}
         </Link>
 
