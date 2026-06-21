@@ -67,10 +67,6 @@ const handleDealClick = async () => {
 	  ⚡ Hot Deal
 	</div>
 
-	<div className="absolute top-3 right-3 z-10 bg-white text-red-500 text-[10px] font-semibold px-2 py-1 rounded-full">
-	  Ends Soon
-	</div>
-
         <Link href={`/offer/${offerId}`}>
           {imageUrl && (
 		<div className="relative w-full h-64 bg-white flex items-center justify-center">
@@ -88,20 +84,25 @@ const handleDealClick = async () => {
 
       <div className="p-2.5">
 
-        <Link href={`/offer/${offerId}`}>
-		<h3 className="font-semibold text-sm leading-5 line-clamp-2 min-h-[34px] overflow-hidden hover:text-blue-600">
-            {title}
-          </h3>
-        </Link>
+	<Link href={`/offer/${offerId}`}>
+	<h3 className="font-semibold text-sm leading-5 line-clamp-2 min-h-[42px] text-slate-800 hover:text-blue-600 transition-colors">
+	    {title}
+	  </h3>
+	</Link>
 
-        {categoryId && categoryName && (
-          <Link
-            href={`/category/${categoryId}`}
-            className="inline-block mt-2 text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-600 hover:bg-gray-200"
-          >
-            {categoryName}
-          </Link>
-        )}
+	
+	<div className="mt-2 text-xs text-slate-500 truncate">
+	  <span className="font-medium text-slate-600">
+	    {merchantName}
+	  </span>
+
+	  {categoryName && (
+	    <>
+	      <span className="mx-1">•</span>
+	      <span>{categoryName}</span>
+	    </>
+	  )}
+	</div>
 
 	<div className="mt-3 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 rounded-lg p-2.5">
 

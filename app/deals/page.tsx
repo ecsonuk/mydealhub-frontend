@@ -33,48 +33,39 @@ const data = await getHomepageData(
 
       <main className="max-w-screen-2xl mx-auto px-8 py-8">
 
-	<div className="mb-10">
-	
-	  <h1 className="text-4xl font-bold">
-	    {dealType === "hot" && "🔥 Hot Deals"}
-	    {dealType === "discount" && "💰 Best Discounts"}
-	    {dealType === "savings" && "🏆 Top Savings"}
-	    {dealType === "latest" && "🆕 Latest Deals"}
-	    {dealType === "exclusive" && "💎 Exclusive Offers"}
-	    {dealType === "all" && "🔥 Deals Hub"}
-	  </h1>
-	
-	  {dealType === "hot" && (
-	    <p className="mt-3 text-slate-600 text-lg">
-	      Discover the most popular and trending deals right now.
-	    </p>
-	  )}
-	
-	  {dealType === "discount" && (
-	    <p className="mt-3 text-slate-600 text-lg">
-	      Browse the biggest savings and highest discounts available today.
-	    </p>
-	  )}
-		
-	  {dealType === "latest" && (
-	    <p className="mt-3 text-slate-600 text-lg">
-	      Explore the newest deals recently added to Hub4Deals.
-	    </p>
-	  )}
+<section className="mb-8 rounded-3xl bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 p-8 text-white shadow-xl">
 
-	{dealType === "exclusive" && (
-	  <p className="mt-3 text-slate-600 text-lg">
-	    Premium and featured offers from our highest value merchants.
-	  </p>
-	)}
-	
-	  {dealType === "all" && (
-	    <p className="mt-3 text-slate-600 text-lg">
-	      Explore hot deals, best discounts and the latest offers in one place.
-	    </p>
-	  )}
-	
-	</div>
+  <h1 className="text-5xl font-extrabold mb-3">
+    {dealType === "hot" && "🔥 Hot Deals"}
+    {dealType === "discount" && "💰 Best Discounts"}
+    {dealType === "savings" && "🏆 Top Savings"}
+    {dealType === "latest" && "🆕 Latest Deals"}
+    {dealType === "exclusive" && "💎 Exclusive Offers"}
+    {dealType === "all" && "🔥 Deals Hub"}
+  </h1>
+
+  <p className="text-lg text-white/90 max-w-4xl">
+    {dealType === "hot" &&
+      "Discover the most popular and trending deals right now."}
+
+    {dealType === "discount" &&
+      "Browse the biggest savings and highest discounts available today."}
+
+    {dealType === "latest" &&
+      "Explore the newest deals recently added to Hub4Deals."}
+
+    {dealType === "exclusive" &&
+      "Premium and featured offers from our highest value merchants."}
+
+    {dealType === "all" &&
+      "Explore hot deals, best discounts, top savings and the latest offers in one place."}
+  </p>
+
+  <div className="mt-4 inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-semibold">
+    Thousands of Offers Updated Daily
+  </div>
+
+</section>
 
 	{/* Hot Deals */}
 	{(dealType === "all" ||

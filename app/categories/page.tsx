@@ -58,19 +58,19 @@ export default async function CategoriesPage({
 
       <main className="max-w-screen-2xl mx-auto p-8">
 
-	<section className="mb-4 rounded-3xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 p-4 text-white">
+	<section className="mb-6 rounded-3xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 p-8 text-white shadow-xl">
 
-	  <h1 className="text-3xl font-bold mb-2">
+	<h1 className="text-5xl font-extrabold mb-3">
 	    📂 {group ? `${group} Categories` : "Browse Categories"}
 	  </h1>
 
-	  <p className="text-white/90">
+	<p className="text-lg text-white/90 max-w-4xl">
 	    {group
 	      ? `Explore deals and offers available under ${group}.`
 	      : "Explore thousands of deals organized by category from leading brands and retailers."}
 	  </p>
 
-	<div className="mt-2 inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-medium">	
+	<div className="mt-4 inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-semibold">
 	    {data.total} Categories Available
 
 	  </div>
@@ -125,7 +125,7 @@ export default async function CategoriesPage({
 		className="group bg-white border border-slate-200 rounded-2xl p-5 min-h-[190px] flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] hover:border-indigo-400 transition-all duration-300"
             >
 
-	<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-indigo-100 to-purple-100 text-5xl transition-transform duration-300 group-hover:scale-110">
+	<div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-indigo-100 to-purple-100 text-4xl transition-transform duration-300 group-hover:scale-110">
 	  {
 	    categoryIcons[
 	      category.full_path.split(" > ")[0]
@@ -134,18 +134,17 @@ export default async function CategoriesPage({
 
 	</div>
 
-	<h2 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-indigo-600 transition-colors">
+	<h2 className="text-lg font-bold text-slate-800 leading-snug mb-2 group-hover:text-indigo-600 transition-colors">
 	  {category.category_name}
 	</h2>
 
-	<p className="text-xs text-slate-500 line-clamp-1 mb-3">
+	<p className="text-xs text-slate-500 line-clamp-2 min-h-[32px] mb-3">
 	  {category.full_path}
 	</p>
 
 	<div className="flex-grow"></div>
 
-	<div className="inline-flex items-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-3 py-1 shadow-sm">
-
+	<div className="inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-pink-500 px-3 py-1.5 shadow-md">
 	  <span className="text-xs font-semibold text-white">
 	    🔥 {category.offer_count} Active Offers
 	  </span>

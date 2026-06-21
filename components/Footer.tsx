@@ -100,7 +100,18 @@ export default function Footer() {
 		  <li>Trusted Merchants</li>
 		  <li>Global Categories</li>
 		  <li>Worldwide Coverage</li>
+
+		  <li className="pt-2">
+		    <a
+		      href="mailto:marketing@hub4deals.com"
+		      className="text-indigo-300 hover:text-white transition-colors"
+		    >
+		      📧 marketing@hub4deals.com
+		    </a>
+		  </li>
 		</ul>
+
+
           </div>
 
         </div>

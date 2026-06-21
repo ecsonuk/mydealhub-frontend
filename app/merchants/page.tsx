@@ -86,14 +86,14 @@ export default async function MerchantsPage({
             <Link
               key={merchant.merchant_id}
               href={`/merchant/${merchant.merchant_id}`}
-		className="group bg-white rounded-2xl p-5 shadow-md border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+		className="group bg-white rounded-2xl p-4 shadow-md border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
             >
               {merchant.logo_url ? (
-                <div className="relative h-20 mb-3">
+		<div className="relative h-32 mb-3 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-100">
 		<img
 		  src={merchant.logo_url}
 		  alt={merchant.merchant_name}
-		  className="w-full h-full object-contain"
+		className="max-w-[85%] max-h-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
 		  loading="lazy"
 		/>
                 </div>
@@ -103,12 +103,11 @@ export default async function MerchantsPage({
                 </div>
               )}
 
-		<h2 className="font-semibold text-center text-slate-800 line-clamp-2 min-h-[48px]">
+		<h2 className="font-semibold text-center text-slate-800 text-sm line-clamp-2 min-h-[42px]">
                 {merchant.merchant_name}
               </h2>
 
-	<div className="mt-4 flex flex-col items-center gap-2">
-
+	<div className="mt-2 flex flex-col items-center gap-2">
 	<span
 	  className="
 	    px-4 py-1.5
