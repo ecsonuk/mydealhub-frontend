@@ -45,33 +45,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-      <html
-        lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      >
-        <head>
-          <meta
-            name="impact-site-verification"
-            content="1d2583ee-db97-4f72-a624-6e251f4e4846"
-          />
-        </head>
-
-      <body
-        className="
-          min-h-full
-          flex
-          flex-col
-	  bg-slate-100
-          text-slate-900
-        "
-      >
-	<>
-	  <CountryPopup />
-	  <GoogleAnalytics />
-	  {children}
-	</>
-      </body>
-    </html>
-  );
+return (
+  <html
+    lang="en"
+    className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+  >
+    <body
+      className="
+        min-h-full
+        flex
+        flex-col
+        bg-slate-100
+        text-slate-900
+      "
+    >
+      <>
+        <CountryPopup />
+        <GoogleAnalytics />
+        {children}
+      </>
+    </body>
+  </html>
+);
 }
