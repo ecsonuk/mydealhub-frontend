@@ -37,6 +37,12 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
 
+  verification: {
+    other: {
+      "fo-verify": "7ad8b799-d052-490e-a831-96058fdb7864",
+    },
+  },
+
 };
 
 
