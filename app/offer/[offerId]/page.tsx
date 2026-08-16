@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import Header from "../../../components/Header";
 import { getOffer } from "../../../lib/api";
+import { notFound } from "next/navigation";
 
 type PageProps = {
   params: Promise<{
@@ -84,16 +85,9 @@ export default async function OfferPage({
   const result = await getOffer(offerId);
   const offer = result.data;
 
-  if (!offer) {
-    return (
-      <>
-        <Header />
-        <main className="max-w-4xl mx-auto p-8">
-          Offer not found
-        </main>
-      </>
-    );
-  }
+if (!offer) {
+  notFound();
+}
 
   return (
     <>
