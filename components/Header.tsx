@@ -153,13 +153,6 @@ useEffect(() => {
           Hub4Deals
         </h1>
 
-        <span className="text-[11px] font-medium mt-1">
-          by{" "}
-          <span className="text-slate-500">Ad</span>
-          <span className="text-blue-500">Media</span>
-          <span className="text-purple-500">One</span>
-        </span>
-
           </Link>
 
           {/* DESKTOP NAVIGATION */}
