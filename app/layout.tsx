@@ -65,11 +65,30 @@ return (
         text-slate-900
       "
     >
-      <>
-        <CountryPopup />
-        <GoogleAnalytics />
-        {children}
-      </>
+
+<>
+  <CountryPopup />
+  <GoogleAnalytics />
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Hub4Deals",
+        url: "https://www.hub4deals.com",
+        logo: "https://www.hub4deals.com/icon.png",
+        email: "marketing@hub4deals.com",
+        description:
+          "Global deals discovery platform featuring verified offers, discounts and coupons from trusted merchants worldwide.",
+      }),
+    }}
+  />
+
+  {children}
+</>
+
     </body>
   </html>
 );

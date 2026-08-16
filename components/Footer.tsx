@@ -13,10 +13,13 @@ export default function Footer() {
               Hub4Deals
             </h2>
 
-            <p className="text-sm text-gray-400">
-		  Discover thousands of verified deals from trusted merchants
-		  across multiple countries and categories worldwide.
-            </p>
+<p className="text-slate-400 text-sm leading-6">
+  Hub4Deals is a global deals discovery platform that aggregates
+  offers, discounts and coupons from trusted merchants and affiliate
+  partners across multiple countries. Prices and availability may
+  change without notice.
+</p>
+
           </div>
 
           <div>

@@ -11,6 +11,7 @@ import Link from "next/link";
 import AnnouncementBar from "../components/AnnouncementBar";
 import TrendingTicker from "../components/TrendingTicker";
 import HeroDeals from "../components/HeroDeals";
+import HowItWorks from "../components/HowItWorks";
 
 import {
   Target,
@@ -50,6 +51,8 @@ import {
 	/>
 
 	<TrendingTicker brands={data.topBrands} />
+
+	<HowItWorks />
 
 	{/* Trending Deals */}
 	<section
