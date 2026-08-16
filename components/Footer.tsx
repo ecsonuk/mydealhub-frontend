@@ -78,16 +78,26 @@ export default function Footer() {
                 </Link>
               </li>
 
-		<li>
-		  <Link
-		    href="/contact"
-		    className="hover:text-white"
-		  >
-		    Contact Us
-		  </Link>
-		</li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="hover:text-white"
+                    >
+                      Contact Us
+                    </Link>
+                  </li>
 
-            </ul>
+                  <li>
+                    <Link
+                      href="/impressum"
+                      className="hover:text-white"
+                    >
+                      Impressum
+                    </Link>
+                  </li>
+
+              </ul>
+
           </div>
 
           <div>
