@@ -7,11 +7,18 @@ export default function AboutHub4Deals() {
           About Hub4Deals
         </h2>
 
-        <p className="text-center text-white/90 max-w-3xl mx-auto text-lg leading-8 mb-10">
-          Hub4Deals helps shoppers discover verified deals, coupons,
-          discount codes and promotional offers from trusted online
-          retailers, brands and merchants across multiple countries.
-        </p>
+<p className="text-center text-white/90 max-w-5xl mx-auto text-lg leading-8 mb-10">
+  Hub4Deals is a global deals discovery platform that helps shoppers
+  find verified deals, coupons, discount codes, promotional offers
+  and price reductions from trusted online retailers and brands.
+  Browse thousands of offers across electronics, fashion, beauty,
+  home, travel, automotive, sports and many other categories.
+  Our platform continuously updates merchant promotions from multiple
+  countries, helping users compare deals and discover new savings
+  opportunities every day. Whether you are searching for the latest
+  discounts, seasonal sales, exclusive offers or limited-time deals,
+  Hub4Deals makes online shopping smarter and more affordable.
+</p>
 
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-x-8 gap-y-6 text-white text-base lg:text-lg font-medium">

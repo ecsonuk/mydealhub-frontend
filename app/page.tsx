@@ -15,6 +15,7 @@ import HowItWorks from "../components/HowItWorks";
 import AboutHub4Deals from "../components/AboutHub4Deals";
 import FAQ from "../components/FAQ";
 import Script from "next/script";
+import type { Metadata } from "next";
 
 import {
   Target,
@@ -22,6 +23,42 @@ import {
   Store,
   Globe,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title:
+    "Deals, Coupons & Discount Codes Worldwide | Hub4Deals",
+
+  description:
+    "Discover verified deals, coupons, discount codes and special offers from thousands of trusted online stores across fashion, electronics, beauty, travel, home and more.",
+
+  alternates: {
+    canonical: "https://www.hub4deals.com",
+  },
+
+  openGraph: {
+    title:
+      "Deals, Coupons & Discount Codes Worldwide | Hub4Deals",
+
+    description:
+      "Discover verified deals, coupons, discount codes and special offers from trusted merchants worldwide.",
+
+    url: "https://www.hub4deals.com",
+
+    siteName: "Hub4Deals",
+
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title:
+      "Deals, Coupons & Discount Codes Worldwide | Hub4Deals",
+
+    description:
+      "Discover verified deals, coupons, discount codes and special offers from trusted merchants worldwide.",
+  },
+};
 
 	export default async function HomePage({
 	  searchParams,
