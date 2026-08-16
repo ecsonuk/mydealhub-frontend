@@ -106,7 +106,37 @@ export default async function CategoryPage({
   );
 
   return (
-    <>
+ <>
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.hub4deals.com"
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Categories",
+            item: "https://www.hub4deals.com/categories"
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: category.category_name,
+            item: `https://www.hub4deals.com/category/${categoryId}`
+          }
+        ]
+      }),
+    }}
+  />
+
       <Header />
 
 	<main className="max-w-screen-2xl mx-auto p-8">

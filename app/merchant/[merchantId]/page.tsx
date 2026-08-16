@@ -118,6 +118,35 @@ export async function generateMetadata({
 
   return (
   <>
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.hub4deals.com"
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Merchants",
+            item: "https://www.hub4deals.com/merchants"
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: merchant.merchant_name,
+            item: `https://www.hub4deals.com/merchant/${merchantId}`
+          }
+        ]
+      }),
+    }}
+  />
     <Header />
 
     <div className="container mx-auto px-4 py-8">
