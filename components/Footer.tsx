@@ -2,8 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-gray-300 mt-1">
-
+	<footer className="bg-slate-900 text-gray-300 mt-8">
             <div className="max-w-7xl mx-auto px-6 py-10">
       
   <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -119,7 +118,7 @@ export default function Footer() {
 		      href="mailto:marketing@hub4deals.com"
 		      className="text-indigo-300 hover:text-white transition-colors"
 		    >
-		      📧 marketing@hub4deals.com
+		      📧 Email Us
 		    </a>
 		  </li>
 		</ul>
@@ -130,7 +129,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-700 mt-10 pt-6 text-center text-sm text-gray-400">
-          © 2026 Hub4Deals.com. All rights reserved.
+          © {new Date().getFullYear()} Hub4Deals.com. All rights reserved.
         </div>
 
       </div>

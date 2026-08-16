@@ -176,9 +176,9 @@ useEffect(() => {
 
           {/* Main Heading */}
 	<h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-3">
-	  Save Money with
+	  Find Verified 
 	  <span className="text-yellow-200">
-	    {" "}Verified Deals Worldwide
+	    {" "}Deals, Coupons & Discounts from Trusted Merchants
 	  </span>
 	</h1>
 
@@ -212,6 +212,12 @@ useEffect(() => {
           >
             Explore Merchants
           </Link>
+
+<div className="flex flex-wrap gap-4 mt-6 text-sm font-medium text-white/90">
+  <span>✓ Free to Use</span>
+  <span>✓ Updated Daily</span>
+  <span>✓ Trusted Affiliate Partners</span>
+</div>
 
         </div>
 

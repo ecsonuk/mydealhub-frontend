@@ -12,6 +12,8 @@ import AnnouncementBar from "../components/AnnouncementBar";
 import TrendingTicker from "../components/TrendingTicker";
 import HeroDeals from "../components/HeroDeals";
 import HowItWorks from "../components/HowItWorks";
+import AboutHub4Deals from "../components/AboutHub4Deals";
+import FAQ from "../components/FAQ";
 
 import {
   Target,
@@ -147,6 +149,10 @@ import {
         />
 
 	<WhyChooseUs stats={data.stats} />
+
+	<FAQ />
+
+	<AboutHub4Deals />
 
       </main>
 
