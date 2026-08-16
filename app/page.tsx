@@ -14,6 +14,7 @@ import HeroDeals from "../components/HeroDeals";
 import HowItWorks from "../components/HowItWorks";
 import AboutHub4Deals from "../components/AboutHub4Deals";
 import FAQ from "../components/FAQ";
+import Script from "next/script";
 
 import {
   Target,
@@ -39,8 +40,48 @@ import {
 
 	const uniqueHeroDeals = data.topDiscounts.slice(0, 20);
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Hub4Deals",
+  url: "https://www.hub4deals.com",
+  logo: "https://www.hub4deals.com/icon.png",
+  description:
+    "Hub4Deals helps shoppers discover the latest deals, discounts, coupons and offers from trusted merchants worldwide.",
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Hub4Deals",
+  url: "https://www.hub4deals.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target:
+      "https://www.hub4deals.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
   return (
     <>
+
+<Script
+  id="organization-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(organizationSchema),
+  }}
+/>
+
+<Script
+  id="website-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(websiteSchema),
+  }}
+/>
+
 	<AnnouncementBar />
 
       <Header />
