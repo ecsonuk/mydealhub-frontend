@@ -4,16 +4,27 @@ export default function ImpressumPage() {
   return (
     <main className="min-h-screen bg-white">
       <div className="max-w-4xl mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold mb-8">Impressum</h1>
+        <h1 className="text-4xl font-bold mb-8">
+          Impressum / Imprint
+        </h1>
 
-        <div className="space-y-6 text-gray-700">
+        <div className="space-y-8 text-gray-700">
+
           <div>
             <h2 className="text-xl font-semibold mb-2">
-              Website Operator
+              Website
             </h2>
 
             <p>Hub4Deals</p>
-            <p>Operated by AdMediaOne Digital LLP</p>
+            <p>https://hub4deals.com</p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              Legal Entity Name
+            </h2>
+
+            <p>AdMediaOne Digital LLP</p>
           </div>
 
           <div>
@@ -21,9 +32,10 @@ export default function ImpressumPage() {
               Registered Address
             </h2>
 
-            <p>
-              [567/5,Gali No. 4, Patel Nagar, GURUGRAM, HARYANA, 122001]
-            </p>
+            <p>567/5, Gali No. 4</p>
+            <p>Patel Nagar</p>
+            <p>Gurugram, Haryana 122001</p>
+            <p>India</p>
           </div>
 
           <div>
@@ -37,18 +49,19 @@ export default function ImpressumPage() {
 
           <div>
             <h2 className="text-xl font-semibold mb-2">
-              Registration Information
+              Company Registration Details
             </h2>
 
-            <p>
-              LLP Registration Number:
-              [ACX-6764]
-            </p>
+            <p>LLP Registration Number: ACX-6764</p>
+            <p>GST Number: 06ACOFA1339C1ZQ</p>
+          </div>
 
-            <p>
-              GST/VAT Number:
-              [06ACOFA1339C1ZQ]
-            </p>
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              Responsible Person
+            </h2>
+
+            <p>AdMediaOne Digital LLP</p>
           </div>
 
           <div>
@@ -80,6 +93,7 @@ export default function ImpressumPage() {
               ← Back to Home
             </Link>
           </div>
+
         </div>
       </div>
     </main>
