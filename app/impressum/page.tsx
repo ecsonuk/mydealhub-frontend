@@ -21,14 +21,6 @@ export default function ImpressumPage() {
 
           <div>
             <h2 className="text-xl font-semibold mb-2">
-              Legal Entity Name
-            </h2>
-
-            <p>AdMediaOne Digital LLP</p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold mb-2">
               Contact Information
             </h2>
 
