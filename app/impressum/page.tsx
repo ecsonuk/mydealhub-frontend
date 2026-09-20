@@ -29,47 +29,11 @@ export default function ImpressumPage() {
 
           <div>
             <h2 className="text-xl font-semibold mb-2">
-              Registered Address
-            </h2>
-
-            <p>567/5, Gali No. 4</p>
-            <p>Patel Nagar</p>
-            <p>Gurugram, Haryana 122001</p>
-            <p>India</p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold mb-2">
               Contact Information
             </h2>
 
             <p>Email: marketing@hub4deals.com</p>
             <p>Website: https://hub4deals.com</p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold mb-2">
-              Company Registration Details
-            </h2>
-
-            <p>LLP Registration Number: ACX-6764</p>
-            <p>GST Number: 06ACOFA1339C1ZQ</p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold mb-2">
-              Responsible Person
-            </h2>
-
-            <p>AdMediaOne Digital LLP</p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold mb-2">
-              Responsible for Content
-            </h2>
-
-            <p>AdMediaOne Digital LLP</p>
           </div>
 
           <div>
